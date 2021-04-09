@@ -3,7 +3,7 @@ extends KinematicBody2D
 export(float) var gravity = 980
 export(float) var walk_acceleration = 5000
 export(float) var friction = 5000
-export(float) var max_speed = 1000
+export(float) var max_speed = 500
 export(float) var tolerance = 1
 export(float) var jump_speed = 500
 export(float) var air_multiplier = 0.1

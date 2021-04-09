@@ -7,7 +7,8 @@ onready var screen_1 = $"Screen 1"
 onready var screen_2 = $"Screen 2"
 onready var screen_3 = $"Screen 3"
 
-var screen_size = 1920
+var screen_size = 64*15
+var screen_height = 64*9
 var last_chunk = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +16,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	var chunk = int(floor(player.position.x/1920))
+	var chunk = int(floor(player.position.x/screen_size))
 	if last_chunk != chunk:
 		emit_signal("new_chunk", chunk)
 	last_chunk = chunk
@@ -36,9 +37,9 @@ func _process(delta):
 	flip_screens(screen_3)
 		
 func flip_screens(screen):
-	if int(floor((screen.position.x/1920)/3)) % 2 == 0:
+	if int(floor((screen.position.x/screen_size)/3)) % 2 == 0:
 		screen.scale.y = 1
 		screen.position.y = 0
 	else:
 		screen.scale.y = -1
-		screen.position.y = 1088
+		screen.position.y = screen_height

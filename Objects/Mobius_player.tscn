@@ -1,29 +1,42 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/CollisionShape2D.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Untitled.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/gun-1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/body.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Gun.gd" type="Script" id=4]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 64.0
-height = 64.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 25 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
-position = Vector2( 590.903, 277.813 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Body-Collider" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="Body" type="Sprite" parent="Body-Collider"]
+position = Vector2( 0, 4 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 4, 4 )
 limit_top = 0
 limit_bottom = 0
 drag_margin_left = 0.5
 drag_margin_right = 0.5
+
+[node name="Gun" type="Sprite" parent="."]
+position = Vector2( 0, -50 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -150 )
+script = ExtResource( 4 )
+
+[node name="Spawn" type="Node2D" parent="Gun"]
+position = Vector2( 0, -450 )
+scale = Vector2( 10, 10 )
