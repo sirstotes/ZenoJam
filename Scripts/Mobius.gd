@@ -7,8 +7,8 @@ onready var screen_1 = $"Screen 1"
 onready var screen_2 = $"Screen 2"
 onready var screen_3 = $"Screen 3"
 
-var screen_size = 64*15
-var screen_height = 64*9
+var screen_size = 64 * 15
+var screen_height = 64 * 9
 var last_chunk = 0
 
 # Called when the node enters the scene tree for the first time.

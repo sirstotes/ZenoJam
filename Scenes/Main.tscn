@@ -9,7 +9,7 @@
 script = ExtResource( 2 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
-position = Vector2( 232.629, 180.512 )
+position = Vector2( 704.976, 200.311 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 378.609, 409.929 )
