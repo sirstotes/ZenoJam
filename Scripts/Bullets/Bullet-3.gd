@@ -8,7 +8,9 @@ func _process(delta):
 	timeAlive += delta
 	if timeAlive > lifeTime:
 		queue_free()
-	move_and_slide(linear_velocity)
+	
+	var velocity = move_and_slide(linear_velocity)
+	linear_velocity = velocity.normalized()*linear_velocity.length()
 	rotation += delta*2
 func _on_Bullet_body_entered(body):
 	if body.health != null:

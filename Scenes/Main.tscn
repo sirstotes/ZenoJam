@@ -3,21 +3,11 @@
 [ext_resource path="res://Sprites/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Mobius.gd" type="Script" id=2]
 [ext_resource path="res://Objects/Mobius_player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/Enemies/Base Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Enemies/Walker.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Bullets/Bullet-3.tscn" type="PackedScene" id=5]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
-
-[node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
-position = Vector2( 704.976, 200.311 )
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 378.609, 409.929 )
-
-[node name="Gun" parent="Player" index="2"]
-bullet = ExtResource( 5 )
-bulletHolderPath = NodePath("../../Bullets")
 
 [node name="Screen 1" type="Node2D" parent="."]
 
@@ -49,5 +39,16 @@ format = 1
 tile_data = PoolIntArray( 0, 1610612736, 65538, 1, 1610612736, 65537, 2, 1610612736, 65537, 3, 1610612736, 65536, 4, 0, 65536, 5, 1610612736, 1, 6, 1610612736, 1, 7, 1610612736, 1, 8, 1610612736, 1, 9, 1610612736, 1, 10, 1610612736, 1, 11, 1610612736, 1, 12, 1610612736, 1, 13, 1610612736, 1, 14, 1610612736, 1, 65536, 1610612736, 2, 65537, 1610612736, 1, 65538, 1610612736, 1, 65539, 1610612736, 0, 65540, 1610612740, 0, 131080, 1610612738, 2, 131081, 1610612738, 1, 131082, 1610612738, 0, 262155, 1610612739, 0, 327682, 2, 0, 327683, 2, 1, 327684, 2, 2, 327693, 1610612739, 0, 393223, 4, 1, 458759, 0, 131072, 458760, 4, 1, 524288, 0, 0, 524289, 0, 1, 524290, 0, 1, 524291, 0, 1, 524292, 0, 1, 524293, 0, 1, 524294, 0, 1, 524295, 0, 1, 524296, 0, 1, 524297, 0, 1, 524298, 0, 1, 524299, 0, 1, 524300, 0, 1, 524301, 0, 1, 524302, 0, 2 )
 
 [node name="Bullets" type="Node" parent="."]
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2153.64, 461.181 )
+max_speed = 500.0
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 378.609, 409.929 )
+
+[node name="Gun" parent="Player" index="2"]
+bullet = ExtResource( 5 )
+bulletHolderPath = NodePath("../../Bullets")
 
 [editable path="Player"]

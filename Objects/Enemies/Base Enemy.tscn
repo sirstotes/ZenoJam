@@ -1,11 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Enemies/Base Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Untitled.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/tri-yellow.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 64.0
-height = 64.0
+[sub_resource type="CircleShape2D" id=1]
+radius = 32.0
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 position = Vector2( 255.308, 482.893 )
@@ -18,4 +17,5 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )

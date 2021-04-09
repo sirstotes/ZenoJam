@@ -5,8 +5,9 @@
 [ext_resource path="res://Sprites/body.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Gun.gd" type="Script" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 25 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 16.0
+height = 18.0
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 1 )
