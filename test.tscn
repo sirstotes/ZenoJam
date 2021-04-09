@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Bullet-3.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Block.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" type="Node2D"]
@@ -9,6 +10,7 @@
 position = Vector2( 487.795, 355.822 )
 
 [node name="Gun" parent="Player/Head-Collider" index="0"]
+bullet = ExtResource( 2 )
 bulletHolderPath = NodePath("../../..")
 
 [node name="Block" parent="." instance=ExtResource( 3 )]
