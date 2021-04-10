@@ -14,6 +14,8 @@ var health = 0
 var velocity = Vector2()
 var last_position = Vector2()
 var collided_buffer = 0
+var health = 3
+var money = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
