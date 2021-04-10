@@ -40,9 +40,12 @@ func flip_screens(screen):
 	if int(floor((screen.position.x/screen_size)/3)) % 2 == 0:
 		screen.scale.y = 1
 		screen.position.y = 0
+		screen.get_node("Frontdrop").visible = false
+		screen.get_node("Frontdrop2").visible = true
 	else:
 		screen.scale.y = -1
 		screen.position.y = screen_height
-
+		screen.get_node("Frontdrop").visible = true
+		screen.get_node("Frontdrop2").visible = false
 func get_chunk():
 	return int(floor(player.position.x/screen_size))
