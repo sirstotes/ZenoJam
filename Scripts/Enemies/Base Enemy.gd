@@ -22,8 +22,6 @@ var player_chunk = 0
 # Called when the node enters the scene tree for the first time.
 func _init():
 	set_color("blue")
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -47,7 +45,6 @@ func base_stuff(delta):
 			health -= collision.collider.damage
 			if health == 0:
 				die()
-			print(health)
 	var self_chunk = int(floor(position.x/screen_size))
 	wrap(self_chunk)
 	if gravity_inverted:
