@@ -1,2 +1,2 @@
-﻿42813
+﻿35717
 /opt/godot/Godot_v3.2.3-stable_mono_x11.64
