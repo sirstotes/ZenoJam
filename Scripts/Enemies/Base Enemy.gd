@@ -44,7 +44,7 @@ func base_stuff(delta):
 		if collision.collider.is_in_group("bullet") and not collision.collider.is_in_group("freeing"):
 			collision.collider.add_to_group("freeing")
 			collision.collider.queue_free()
-			health -= 1
+			health -= collision.collider.damage
 			if health == 0:
 				die()
 			print(health)

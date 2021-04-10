@@ -1,7 +1,7 @@
 extends RigidBody2D
 var damage = 1
 var timeAlive = 0
-var lifeTime = 100
+var lifeTime = 10
 var speed_multiplier = 0
 
 var screen_size = 64 * 15
@@ -24,12 +24,6 @@ func _process(delta):
 	wrap(self_chunk)
 	if timeAlive > lifeTime:
 		queue_free()
-func _on_Bullet_body_entered(body):
-	if body.health != null:
-		body.health -= damage
-		queue_free()
-
-
 func wrap(self_chunk):
 	if abs(player_chunk - self_chunk) > 1:
 		if player_chunk > self_chunk:

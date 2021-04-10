@@ -4,6 +4,7 @@ export(NodePath) var bulletHolderPath
 export var speed = 10
 export var cooldown = 0.5
 export var rotationOffset = 90
+export var bulletLifetime = 10
 var cooldownWaited = 0
 var bulletHolder
 func _ready():
@@ -17,6 +18,6 @@ func _process(delta):
 			var newBullet = bullet.instance()
 			newBullet.global_position=child.global_position
 			newBullet.linear_velocity = Vector2(0, -speed*newBullet.speed_multiplier).rotated(rotation)
-			newBullet.rotation=rotation
+			newBullet.rotation=position.angle_to(child.position)
 			bulletHolder.add_child(newBullet)
 		cooldownWaited = 0

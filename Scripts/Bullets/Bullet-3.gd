@@ -1,7 +1,7 @@
 extends KinematicBody2D
 var damage = 5
 var timeAlive = 0
-var lifeTime = 100
+var lifeTime = 10
 var linear_velocity = Vector2(0, 0)
 var speed_multiplier = 20
 
@@ -24,18 +24,13 @@ func _process(delta):
 		queue_free()
 	
 	var velocity = move_and_slide(linear_velocity)
-	if linear_velocity.angle()-velocity.angle() >= 1.5:
+	if linear_velocity.angle()-velocity.angle() >= 1.4:
 		linear_velocity=linear_velocity.rotated(-PI/2)
 	else:
 		linear_velocity = velocity.normalized()*linear_velocity.length()
 	var self_chunk = int(floor(global_position.x/screen_size))
 	wrap(self_chunk)
 	rotation += delta*2
-func _on_Bullet_body_entered(body):
-	if body.health != null:
-		body.health -= damage
-		queue_free()
-
 func wrap(self_chunk):
 	if abs(player_chunk - self_chunk) > 1:
 		if player_chunk > self_chunk:

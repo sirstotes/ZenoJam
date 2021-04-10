@@ -3,5 +3,5 @@
 [ext_resource path="res://Typo_Round_Regular_Demo.otf" type="DynamicFontData" id=1]
 
 [resource]
-size = 280
+size = 40
 font_data = ExtResource( 1 )
