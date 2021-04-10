@@ -7,14 +7,14 @@ export(float) var max_speed = 500
 export(float) var tolerance = 1
 export(float) var jump_speed = 500
 export(float) var air_multiplier = 0.1
-export(int) var max_health = 5
+export(int) var max_health = 3
 
 var health = 0
 
 var velocity = Vector2()
 var last_position = Vector2()
 var collided_buffer = 0
-var money = 0
+var money = 100
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

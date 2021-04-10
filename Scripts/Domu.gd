@@ -25,15 +25,15 @@ func _process(delta):
 			cooldownWaited = tradeCooldown
 			player.money -= tradeCost
 			if tradenum == 0:
-				player.health += 1
+				player.max_health += 1
 			elif tradenum == 1:
-				player.maxspeed += 100
+				player.max_speed += 100
 			elif tradenum == 2:
-				player.get_node("Gun").Bullet = load("res://Objects/Bullets/bullet-1.tscn")
+				player.get_node("Gun").bullet = load("res://Objects/Bullets/bullet-1.tscn")
 			elif tradenum == 3:
-				player.get_node("Gun").Bullet = load("res://Objects/Bullets/bullet-2.tscn")
+				player.get_node("Gun").bullet = load("res://Objects/Bullets/bullet-2.tscn")
 			elif tradenum == 4:
-				player.get_node("Gun").Bullet = load("res://Objects/Bullets/bullet-3.tscn")
+				player.get_node("Gun").bullet = load("res://Objects/Bullets/bullet-3.tscn")
 			elif tradenum == 5:
 				pass
 			elif tradenum == 6:

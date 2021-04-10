@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Sprites/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Mobius.gd" type="Script" id=2]
@@ -13,6 +13,11 @@
 [ext_resource path="res://Sprites/health.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/coin.png" type="Texture" id=12]
 [ext_resource path="res://Objects/Enemies/Walker.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/domu-green.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Upgrades/speed.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Upgrades/bullet-2.png" type="Texture" id=16]
+[ext_resource path="res://Objects/HealthBehind.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Sprites/health-empty.png" type="Texture" id=18]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -152,6 +157,31 @@ tile_data = PoolIntArray( 8, 1610612742, 65536, 9, 1610612736, 65537, 10, 161061
 position = Vector2( 1792, 288 )
 pathToBase = NodePath("../..")
 
+[node name="Domu2" parent="Domus" instance=ExtResource( 8 )]
+position = Vector2( 1856, 480 )
+tradenum = 1
+tradeCost = 5
+pathToBase = NodePath("../..")
+
+[node name="Body" parent="Domus/Domu2/Body-Collider" index="0"]
+texture = ExtResource( 14 )
+
+[node name="Trade" parent="Domus/Domu2/Message" index="1"]
+texture = ExtResource( 15 )
+
+[node name="Domu3" parent="Domus" instance=ExtResource( 8 )]
+position = Vector2( 2528, 224 )
+scale = Vector2( 1, -1 )
+tradenum = 2
+tradeCost = 10
+pathToBase = NodePath("../..")
+
+[node name="Body" parent="Domus/Domu3/Body-Collider" index="0"]
+texture = ExtResource( 10 )
+
+[node name="Trade" parent="Domus/Domu3/Message" index="1"]
+texture = ExtResource( 16 )
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 943.071, 425.225 )
 z_index = 1
@@ -247,6 +277,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HealthBehinds" type="HBoxContainer" parent="CanvasLayer/UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -64.0
+margin_right = 1645.0
+margin_bottom = 544.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBehind" parent="CanvasLayer/UI/HealthBehinds" instance=ExtResource( 17 )]
+
+[node name="HealthBehind2" type="TextureRect" parent="CanvasLayer/UI/HealthBehinds"]
+margin_left = 334.0
+margin_right = 638.0
+margin_bottom = 608.0
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBehind3" type="TextureRect" parent="CanvasLayer/UI/HealthBehinds"]
+margin_left = 668.0
+margin_right = 972.0
+margin_bottom = 608.0
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="HealthBars" type="HBoxContainer" parent="CanvasLayer/UI"]
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -286,25 +349,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HealthBox4" type="TextureRect" parent="CanvasLayer/UI/HealthBars"]
-margin_left = 1002.0
-margin_right = 1306.0
-margin_bottom = 608.0
-texture = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HealthBox5" type="TextureRect" parent="CanvasLayer/UI/HealthBars"]
-margin_left = 1336.0
-margin_right = 1640.0
-margin_bottom = 608.0
-texture = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
@@ -314,5 +360,9 @@ __meta__ = {
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1601.97, 171.135 )
+
+[editable path="Domus/Domu2"]
+
+[editable path="Domus/Domu3"]
 
 [editable path="Player"]

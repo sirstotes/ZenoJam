@@ -5,6 +5,7 @@ var labelMod = 0
 var uiMod = 0
 var player
 var healthbar = preload("res://Objects/HealthBox.tscn")
+var healthbehind = preload("res://Objects/HealthBehind.tscn")
 func _ready():
 	get_tree().paused = true
 	player = get_parent().get_node("Player")
@@ -23,11 +24,16 @@ func _process(delta):
 	$UI.modulate = Color(1, 1, 1, uiMod)
 	$UI/DomuCount.text = "x"+str(get_parent().get_node("Domus").get_child_count())
 	$UI/CoinCount.text = "x"+str(player.money)
-	if $UI/HealthBars.get_child_count() != player.health:
+	if $UI/HealthBars.get_child_count() != (player.max_health - player.health):
 		for child in $UI/HealthBars.get_children():
 			$UI/HealthBars.remove_child(child)
 		for i in range(player.max_health - player.health):
 			$UI/HealthBars.add_child(healthbar.instance())
+	if $UI/HealthBehinds.get_child_count() != player.max_health:
+		for child in $UI/HealthBehinds.get_children():
+			$UI/HealthBehinds.remove_child(child)
+		for i in range(player.max_health):
+			$UI/HealthBehinds.add_child(healthbehind.instance())
 	if Input.is_action_just_pressed("shoot"):
 		started = true
 		get_tree().paused = false
