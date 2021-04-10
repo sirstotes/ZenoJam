@@ -18,6 +18,7 @@ func _ready():
 	base.connect("new_chunk", self, "move_handler")
 
 func _process(delta):
+	add_to_group("bullet")
 	timeAlive += delta
 	if timeAlive > lifeTime:
 		queue_free()

@@ -15,6 +15,7 @@ onready var base = $"../../../Node2D"
 func _init():
 	speed_multiplier = gravity_scale*8
 func _ready():
+	add_to_group("bullet")
 	player_chunk = base.get_chunk()
 	base.connect("new_chunk", self, "move_handler")
 func _process(delta):
