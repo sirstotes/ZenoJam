@@ -4,8 +4,7 @@ var walking_left = true
 
 var last_position = Vector2()
 var collided_buffer = 0
-# Called when the node enters the scene tree for the first time.
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _ready():
 	base.connect("new_chunk", self, "move_handler")
 	$Sprite.texture = set_color("blue")

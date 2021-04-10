@@ -7,6 +7,9 @@ export(float) var max_speed = 500
 export(float) var tolerance = 1
 export(float) var jump_speed = 500
 export(float) var air_multiplier = 0.1
+export(int) var max_health = 5
+
+var health = 0
 
 var velocity = Vector2()
 var last_position = Vector2()
@@ -42,3 +45,6 @@ func _physics_process(delta):
 	last_position = position
 	move_and_slide(velocity, Vector2(0, -1))
 	velocity.y += gravity * delta
+
+func damage(amount):
+	health += amount

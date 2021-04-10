@@ -39,3 +39,10 @@ func move_handler(new_chunk):
 	var self_chunk = int(floor(global_position.x/screen_size))
 	player_chunk = new_chunk
 	wrap(self_chunk)
+
+func _on_Bullet_body_entered(body):
+	if body.is_in_group("enemy"):
+		body.health += damage
+		print(body.health)
+		add_to_group("freeing")
+		queue_free()

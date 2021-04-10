@@ -4,10 +4,15 @@ export(float) var gravity = 980
 export(float) var walk_acceleration = 5000
 export(float) var friction = 5000
 var max_speed = 1000
+var max_health = 0
 export(float) var tolerance = 1
 export(float) var jump_speed = 500
 export(float) var air_multiplier = 0.1
+export(float) var player_damage_buffer = 1
+
+var current_player_buffer = 0
 var health = 0
+
 onready var base = $"../../Node2D"
 
 var properties = {"blue": [100, 2], "green": [200, 4], "yellow": [300, 6], "red": [400, 8]}
@@ -25,6 +30,7 @@ func _init():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	add_to_group("enemy")
 	base_stuff(delta)
 	
 
@@ -39,12 +45,22 @@ func base_stuff(delta):
 	move_and_slide(velocity, Vector2(0, -1))
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
+		if collision.collider.name == "TileMap" or collision.collider.name == "TileMap2" or collision.collider.name == "TileMap3":
+			continue
 		if collision.collider.is_in_group("bullet") and not collision.collider.is_in_group("freeing"):
+			print("Bullet Contact")
 			collision.collider.add_to_group("freeing")
 			collision.collider.queue_free()
-			health -= collision.collider.damage
-			if health == 0:
-				die()
+			health += collision.collider.damage
+		if collision.collider.name == "Player":
+			if current_player_buffer > player_damage_buffer:
+				current_player_buffer = 0
+				print(collision.collider.health)
+				collision.collider.damage(1)
+				print("Player damage")
+	current_player_buffer += delta
+	if health >= max_health:
+		die()
 	var self_chunk = int(floor(position.x/screen_size))
 	wrap(self_chunk)
 	if gravity_inverted:
@@ -68,7 +84,7 @@ func die():
 
 func set_color(color):
 	max_speed = properties[color][0]
-	health = properties[color][1]
+	max_health = properties[color][1]
 	return load("res://Sprites/tri-" + color + ".png")
 
 func move_handler(new_chunk):
