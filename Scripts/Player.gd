@@ -14,7 +14,6 @@ var health = 0
 var velocity = Vector2()
 var last_position = Vector2()
 var collided_buffer = 0
-var health = 3
 var money = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,6 +46,11 @@ func _physics_process(delta):
 	last_position = position
 	move_and_slide(velocity, Vector2(0, -1))
 	velocity.y += gravity * delta
+	if health >= max_health:
+		die()
 
 func damage(amount):
 	health += amount
+
+func die():
+	pass

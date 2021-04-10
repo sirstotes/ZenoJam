@@ -26,7 +26,7 @@ func _process(delta):
 	if $UI/HealthBars.get_child_count() != player.health:
 		for child in $UI/HealthBars.get_children():
 			$UI/HealthBars.remove_child(child)
-		for i in range(player.health):
+		for i in range(player.max_health - player.health):
 			$UI/HealthBars.add_child(healthbar.instance())
 	if Input.is_action_just_pressed("shoot"):
 		started = true
