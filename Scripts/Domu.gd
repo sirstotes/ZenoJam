@@ -27,7 +27,7 @@ func _process(delta):
 			if tradenum == 0:
 				player.max_health += 1
 			elif tradenum == 1:
-				player.max_speed += 100
+				player.max_speed += 50
 			elif tradenum == 2:
 				player.get_node("Gun").bullet = load("res://Objects/Bullets/bullet-1.tscn")
 			elif tradenum == 3:

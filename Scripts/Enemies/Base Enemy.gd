@@ -67,7 +67,12 @@ func base_stuff(delta):
 		velocity.y += -gravity * delta
 	else:
 		velocity.y += gravity * delta
-
+	if health == 0:
+		$Face.texture = load("res://Sprites/face-5.png")
+	elif health == max_health-1:
+		$Face.texture = load("res://Sprites/face-4.png")
+	else:
+		$Face.texture = load("res://Sprites/face-3.png")
 func wrap(self_chunk):
 	if abs(player_chunk - self_chunk) > 1:
 		if player_chunk > self_chunk:

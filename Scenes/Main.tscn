@@ -172,7 +172,7 @@ texture = ExtResource( 15 )
 [node name="Domu3" parent="Domus" instance=ExtResource( 8 )]
 position = Vector2( 2528, 224 )
 scale = Vector2( 1, -1 )
-tradenum = 2
+tradenum = 3
 tradeCost = 10
 pathToBase = NodePath("../..")
 

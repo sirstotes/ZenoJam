@@ -8,6 +8,7 @@ export(float) var tolerance = 1
 export(float) var jump_speed = 500
 export(float) var air_multiplier = 0.1
 export(int) var max_health = 3
+export(int) var regen_time = 10
 
 var health = 0
 
@@ -15,6 +16,7 @@ var velocity = Vector2()
 var last_position = Vector2()
 var collided_buffer = 0
 var money = 100
+var health_regen = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -48,9 +50,13 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	if health >= max_health:
 		die()
-
+func _process(delta):
+	health_regen += delta
+	if health_regen > regen_time and health > 0: 
+		health_regen = 0
+		health -= 1
 func damage(amount):
 	health += amount
-
+	health_regen = 0
 func die():
 	pass
