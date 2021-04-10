@@ -26,12 +26,26 @@ tile_data = PoolIntArray( 0, 1610612742, 65536, 1, 1610612736, 65537, 2, 1610612
 [node name="Frontdrop" type="TileMap" parent="Screen 1"]
 visible = false
 scale = Vector2( 0.1, 0.1 )
+z_index = 2
+z_as_relative = false
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 640, 640 )
 collision_layer = 0
 collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 1, 262146, 0, 1, 262147, 0, 1, 262148, 0, 2, 327680, 0, 65536, 327681, 0, 65537, 327682, 0, 65537, 327683, 0, 65537, 327684, 0, 65538, 393216, 0, 65536, 393217, 0, 65537, 393218, 0, 65537, 393219, 0, 65537, 393220, 0, 65538, 458752, 0, 65536, 458753, 0, 65537, 458754, 0, 65537, 458755, 0, 65537, 458756, 0, 65538, 458766, 0, 1, 524288, 6, 65537, 524289, 0, 65537, 524290, 0, 65537, 524291, 0, 65537, 524292, 6, 65536, 524302, 0, 65537 )
+
+[node name="Frontdrop2" type="TileMap" parent="Screen 1"]
+visible = false
+position = Vector2( 1920, 0 )
+scale = Vector2( 0.1, 0.1 )
+z_index = 2
+z_as_relative = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 640, 640 )
+collision_layer = 0
+collision_mask = 0
+format = 1
 
 [node name="Screen 2" type="Node2D" parent="."]
 position = Vector2( 960, 0 )
@@ -53,12 +67,26 @@ tile_data = PoolIntArray( 0, 1610612736, 1, 1, 1610612744, 65536, 2, 1610612744,
 [node name="Frontdrop" type="TileMap" parent="Screen 2"]
 visible = false
 scale = Vector2( 0.1, 0.1 )
+z_index = 2
+z_as_relative = false
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 640, 640 )
 collision_layer = 0
 collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 327684, 0, 65536, 327685, 0, 65537, 327686, 0, 65537, 327687, 0, 65537, 327688, 0, 65538, 393220, 0, 65536, 393221, 0, 65537, 393222, 0, 65537, 393223, 0, 65537, 393224, 0, 65538, 458756, 0, 65536, 458757, 0, 65537, 458758, 0, 65537, 458759, 0, 65537, 458760, 0, 65538, 524292, 6, 65537, 524293, 0, 65537, 524294, 0, 65537, 524295, 0, 65537, 524296, 6, 65536 )
+
+[node name="Frontdrop2" type="TileMap" parent="Screen 2"]
+visible = false
+position = Vector2( 960, 0 )
+scale = Vector2( 0.1, 0.1 )
+z_index = 2
+z_as_relative = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 640, 640 )
+collision_layer = 0
+collision_mask = 0
+format = 1
 
 [node name="Screen 3" type="Node2D" parent="."]
 position = Vector2( 1920, 0 )
@@ -80,6 +108,8 @@ tile_data = PoolIntArray( 0, 1610612736, 65537, 1, 1610612736, 65537, 2, 1610612
 [node name="Frontdrop" type="TileMap" parent="Screen 3"]
 visible = false
 scale = Vector2( 0.1, 0.1 )
+z_index = 2
+z_as_relative = false
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 640, 640 )
 collision_layer = 0
@@ -90,6 +120,8 @@ tile_data = PoolIntArray( 65544, 1610612745, 65538, 65545, 1610612745, 65537, 65
 [node name="Frontdrop2" type="TileMap" parent="Screen 3"]
 visible = false
 scale = Vector2( 0.1, 0.1 )
+z_index = 2
+z_as_relative = false
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 640, 640 )
 collision_layer = 0
