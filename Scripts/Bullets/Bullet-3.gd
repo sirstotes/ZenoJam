@@ -23,7 +23,10 @@ func _process(delta):
 		queue_free()
 	
 	var velocity = move_and_slide(linear_velocity)
-	linear_velocity = velocity.normalized()*linear_velocity.length()
+	if linear_velocity.angle()-velocity.angle() >= 1.5:
+		linear_velocity=linear_velocity.rotated(-PI/2)
+	else:
+		linear_velocity = velocity.normalized()*linear_velocity.length()
 	var self_chunk = int(floor(global_position.x/screen_size))
 	wrap(self_chunk)
 	rotation += delta*2
