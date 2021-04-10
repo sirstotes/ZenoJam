@@ -43,3 +43,6 @@ func flip_screens(screen):
 	else:
 		screen.scale.y = -1
 		screen.position.y = screen_height
+
+func get_chunk():
+	return int(floor(player.position.x/screen_size))

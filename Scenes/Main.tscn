@@ -8,6 +8,18 @@
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 704.976, 200.311 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 378.609, 409.929 )
+
+[node name="Camera2D" parent="Player" index="1"]
+zoom = Vector2( 3, 3 )
+
+[node name="Gun" parent="Player" index="2"]
+bulletHolderPath = NodePath("../../Bullets")
+
 [node name="Screen 1" type="Node2D" parent="."]
 
 [node name="Backdrop" type="TileMap" parent="Screen 1"]

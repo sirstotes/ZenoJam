@@ -1,5 +1,5 @@
 extends Sprite
-export var bullet = preload("../Objects/Bullets/Bullet-1.tscn")
+export var bullet = preload("../Objects/Bullets/Bullet-3.tscn")
 export(NodePath) var bulletHolderPath
 export var speed = 10
 export var cooldown = 0.5
