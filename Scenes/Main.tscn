@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Sprites/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Mobius.gd" type="Script" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://Sprites/domu-yellow.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/health.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/coin.png" type="Texture" id=12]
+[ext_resource path="res://Objects/HealthBox.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/domu-green.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Upgrades/speed.png" type="Texture" id=15]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -149,7 +152,20 @@ tile_data = PoolIntArray( 8, 1610612742, 65536, 9, 1610612736, 65537, 10, 161061
 
 [node name="Domu" parent="Domus" instance=ExtResource( 8 )]
 position = Vector2( 1792, 288 )
+tradeCooldown = 1
 pathToBase = NodePath("../..")
+
+[node name="Domu2" parent="Domus" instance=ExtResource( 8 )]
+position = Vector2( 2175, 480 )
+tradenum = 1
+tradeCost = 5
+pathToBase = NodePath("../..")
+
+[node name="Body" parent="Domus/Domu2/Body-Collider" index="0"]
+texture = ExtResource( 14 )
+
+[node name="Trade" parent="Domus/Domu2/Message" index="1"]
+texture = ExtResource( 15 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 943.071, 425.225 )
@@ -259,13 +275,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HealthBox" type="TextureRect" parent="CanvasLayer/UI/HealthBars"]
-margin_right = 304.0
-margin_bottom = 608.0
-texture = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HealthBox" parent="CanvasLayer/UI/HealthBars" instance=ExtResource( 13 )]
 
 [node name="HealthBox2" type="TextureRect" parent="CanvasLayer/UI/HealthBars"]
 margin_left = 334.0
@@ -285,30 +295,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HealthBox4" type="TextureRect" parent="CanvasLayer/UI/HealthBars"]
-margin_left = 1002.0
-margin_right = 1306.0
-margin_bottom = 608.0
-texture = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HealthBox5" type="TextureRect" parent="CanvasLayer/UI/HealthBars"]
-margin_left = 1336.0
-margin_right = 1640.0
-margin_bottom = 608.0
-texture = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[editable path="Domus/Domu2"]
 
 [editable path="Player"]

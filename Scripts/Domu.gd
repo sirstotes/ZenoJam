@@ -9,28 +9,31 @@ var base
 var screen_size = 64 * 15
 var screen_height = 64 * 9
 var player_chunk = 0
+var player
 func _ready():
 	base = get_node(pathToBase)
 	base.connect("new_chunk", self, "_on_new_chunk")
+	player = base.get_node("Player")
 	$Message.visible = false
 func _process(delta):
 	$Message/Label.text = "x"+str(tradeCost)
 	cooldownWaited -= delta
 	if cooldownWaited < 0:
 		$Message.visible = isPlayerNear
-		if Input.is_action_just_released("trade") and isPlayerNear:
+		if Input.is_action_just_released("trade") and isPlayerNear and player.money >= tradeCost:
 			$Message.visible = false
 			cooldownWaited = tradeCooldown
+			player.money -= tradeCost
 			if tradenum == 0:
-				pass
+				player.health += 1
 			elif tradenum == 1:
-				pass
+				player.maxspeed += 100
 			elif tradenum == 2:
-				pass
+				player.get_node("Gun").Bullet = load("res://Objects/Bullets/bullet-1.tscn")
 			elif tradenum == 3:
-				pass
+				player.get_node("Gun").Bullet = load("res://Objects/Bullets/bullet-2.tscn")
 			elif tradenum == 4:
-				pass
+				player.get_node("Gun").Bullet = load("res://Objects/Bullets/bullet-3.tscn")
 			elif tradenum == 5:
 				pass
 			elif tradenum == 6:
