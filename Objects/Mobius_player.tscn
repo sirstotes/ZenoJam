@@ -24,14 +24,8 @@ position = Vector2( 0, 4 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 3 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-limit_top = 0
-limit_bottom = 0
-drag_margin_left = 0.5
-drag_margin_right = 0.5
-
 [node name="Gun" type="Sprite" parent="."]
+pause_mode = 2
 position = Vector2( 0, -50 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
