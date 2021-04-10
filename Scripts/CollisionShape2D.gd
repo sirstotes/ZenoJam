@@ -28,11 +28,11 @@ func _physics_process(delta):
 	if is_on_floor():
 		multiplier = 1
 		velocity.y = 0
-		if Input.is_action_pressed("ui_up"):
+		if Input.is_action_pressed("move-up"):
 			velocity.y = -jump_speed
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("move-left"):
 		velocity.x -= (walk_acceleration * delta * multiplier)
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("move-right"):
 		velocity.x += (walk_acceleration * delta * multiplier)
 	elif abs(velocity.x) < friction * delta * multiplier:
 		velocity.x = 0
