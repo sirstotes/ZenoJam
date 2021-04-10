@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Sprites/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Mobius.gd" type="Script" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://Objects/HealthBox.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Sprites/domu-green.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Upgrades/speed.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Upgrades/bullet-2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Upgrades/bullet-3.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Upgrades/shooter-4.png" type="Texture" id=18]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -91,7 +94,7 @@ cell_size = Vector2( 640, 640 )
 collision_layer = 0
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 327684, 0, 65536, 327685, 0, 65537, 327686, 0, 65537, 327687, 0, 65537, 327688, 0, 65538, 327692, 0, 0, 327693, 0, 1, 327694, 0, 1, 393220, 0, 65536, 393221, 0, 65537, 393222, 0, 65537, 393223, 0, 65537, 393224, 0, 65538, 393228, 0, 65536, 393229, 0, 65537, 393230, 0, 65537, 458756, 0, 65536, 458757, 0, 65537, 458758, 0, 65537, 458759, 0, 65537, 458760, 0, 65538, 458764, 0, 65536, 458765, 0, 65537, 458766, 0, 65537, 524292, 6, 65537, 524293, 0, 65537, 524294, 0, 65537, 524295, 0, 65537, 524296, 6, 65536, 524300, 6, 65537, 524301, 0, 65537, 524302, 0, 65537 )
+tile_data = PoolIntArray( 327684, 0, 65536, 327685, 0, 65537, 327686, 0, 65537, 327687, 0, 65537, 327688, 0, 65538, 327692, 0, 0, 327693, 0, 1, 327694, 0, 1, 393220, 0, 65536, 393221, 0, 65537, 393222, 0, 65537, 393223, 0, 65537, 393224, 0, 65538, 393228, 0, 65536, 393229, 0, 65537, 393230, 0, 65537, 458756, 0, 65536, 458757, 0, 65537, 458758, 0, 65537, 458759, 0, 65537, 458760, 0, 65538, 458764, 6, 65537, 458765, 0, 65537, 458766, 0, 65537, 524292, 6, 65537, 524293, 0, 65537, 524294, 0, 65537, 524295, 0, 65537, 524296, 6, 65536, 524300, 0, 65537, 524301, 0, 65537, 524302, 0, 65537 )
 
 [node name="Frontdrop2" type="TileMap" parent="Screen 2"]
 visible = false
@@ -120,7 +123,7 @@ scale = Vector2( 0.1, 0.1 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 640, 640 )
 format = 1
-tile_data = PoolIntArray( -65536, 1610612736, 65537, -65535, 1610612736, 65537, -65534, 1610612736, 65537, -65533, 1610612736, 65537, -65532, 1610612736, 65537, -65531, 1610612736, 65537, -65530, 1610612736, 65537, -65529, 1610612736, 65537, -65528, 1610612736, 65537, -65527, 1610612736, 65537, -65526, 1610612736, 65537, -65525, 1610612736, 65537, -65524, 1610612736, 65537, -65523, 1610612736, 65537, -65522, 1610612736, 65537, 0, 1610612736, 65537, 1, 1610612736, 65537, 2, 1610612736, 65537, 3, 1610612736, 65537, 4, 1610612744, 65537, 5, 1610612736, 1, 6, 1610612736, 1, 7, 1610612736, 1, 8, 1610612736, 1, 9, 1610612736, 1, 10, 1610612736, 1, 11, 1610612736, 1, 12, 1610612736, 1, 13, 1610612736, 1, 14, 1610612736, 1, 65536, 1610612736, 1, 65537, 1610612736, 1, 65538, 1610612736, 1, 65539, 1610612736, 1, 65540, 1610612740, 0, 131080, 1610612738, 2, 131081, 1610612738, 1, 131082, 1610612738, 0, 262155, 1610612739, 0, 327682, 2, 0, 327683, 2, 1, 327684, 2, 2, 327693, 1610612739, 0, 393223, 7, 1, 458759, 3, 0, 458760, 7, 1, 524288, 0, 1, 524289, 0, 1, 524290, 0, 1, 524291, 0, 1, 524292, 0, 1, 524293, 0, 1, 524294, 0, 1, 524295, 0, 1, 524296, 0, 1, 524297, 0, 1, 524298, 0, 1, 524299, 0, 1, 524300, 0, 1, 524301, 0, 1, 524302, 0, 2, 589824, 0, 65537, 589825, 0, 65537, 589826, 0, 65537, 589827, 0, 65537, 589828, 0, 65537, 589829, 0, 65537, 589830, 0, 65537, 589831, 0, 65537, 589832, 0, 65537, 589833, 0, 65537, 589834, 0, 65537, 589835, 0, 65537, 589836, 0, 65537, 589837, 0, 65537, 589838, 0, 65537 )
+tile_data = PoolIntArray( -65536, 1610612736, 65537, -65535, 1610612736, 65537, -65534, 1610612736, 65537, -65533, 1610612736, 65537, -65532, 1610612736, 65537, -65531, 1610612736, 65537, -65530, 1610612736, 65537, -65529, 1610612736, 65537, -65528, 1610612736, 65537, -65527, 1610612736, 65537, -65526, 1610612736, 65537, -65525, 1610612736, 65537, -65524, 1610612736, 65537, -65523, 1610612736, 65537, -65522, 1610612736, 65537, 0, 1610612736, 65537, 1, 1610612736, 65537, 2, 1610612736, 65537, 3, 1610612736, 65537, 4, 1610612744, 65537, 5, 1610612736, 1, 6, 1610612736, 1, 7, 1610612736, 1, 8, 1610612736, 1, 9, 1610612736, 1, 10, 1610612736, 1, 11, 1610612736, 1, 12, 1610612736, 1, 13, 1610612736, 1, 14, 1610612736, 1, 65536, 1610612736, 1, 65537, 1610612736, 1, 65538, 1610612736, 1, 65539, 1610612736, 1, 65540, 1610612740, 0, 131080, 1610612738, 2, 131081, 1610612738, 1, 131082, 1610612738, 0, 262155, 1610612739, 0, 327682, 2, 0, 327683, 2, 1, 327684, 2, 2, 327693, 1610612739, 0, 393223, 7, 1, 524285, 0, 65538, 458759, 3, 0, 458760, 7, 1, 524288, 0, 1, 524289, 0, 1, 524290, 0, 1, 524291, 0, 1, 524292, 0, 1, 524293, 0, 1, 524294, 0, 1, 524295, 0, 1, 524296, 0, 1, 524297, 0, 1, 524298, 0, 1, 524299, 0, 1, 524300, 0, 1, 524301, 0, 1, 524302, 0, 1, 589824, 0, 65537, 589825, 0, 65537, 589826, 0, 65537, 589827, 0, 65537, 589828, 0, 65537, 589829, 0, 65537, 589830, 0, 65537, 589831, 0, 65537, 589832, 0, 65537, 589833, 0, 65537, 589834, 0, 65537, 589835, 0, 65537, 589836, 0, 65537, 589837, 0, 65537, 589838, 0, 65537 )
 
 [node name="Frontdrop" type="TileMap" parent="Screen 3"]
 visible = false
@@ -151,14 +154,14 @@ tile_data = PoolIntArray( 8, 1610612742, 65536, 9, 1610612736, 65537, 10, 161061
 [node name="Domus" type="Node" parent="."]
 
 [node name="Domu" parent="Domus" instance=ExtResource( 8 )]
-position = Vector2( 1792, 288 )
+position = Vector2( 1760, 288 )
 tradeCooldown = 1
 pathToBase = NodePath("../..")
 
 [node name="Domu2" parent="Domus" instance=ExtResource( 8 )]
-position = Vector2( 2175, 480 )
+position = Vector2( 1888, 288 )
 tradenum = 1
-tradeCost = 5
+tradeCost = 3
 pathToBase = NodePath("../..")
 
 [node name="Body" parent="Domus/Domu2/Body-Collider" index="0"]
@@ -166,6 +169,45 @@ texture = ExtResource( 14 )
 
 [node name="Trade" parent="Domus/Domu2/Message" index="1"]
 texture = ExtResource( 15 )
+
+[node name="Domu3" parent="Domus" instance=ExtResource( 8 )]
+position = Vector2( 2528, 224 )
+scale = Vector2( 1, -1 )
+tradenum = 3
+tradeCost = 10
+pathToBase = NodePath("../..")
+
+[node name="Body" parent="Domus/Domu3/Body-Collider" index="0"]
+texture = ExtResource( 10 )
+
+[node name="Trade" parent="Domus/Domu3/Message" index="1"]
+texture = ExtResource( 16 )
+
+[node name="Domu4" parent="Domus" instance=ExtResource( 8 )]
+position = Vector2( 2464, 96 )
+scale = Vector2( 1, -1 )
+tradenum = 4
+tradeCost = 20
+pathToBase = NodePath("../..")
+
+[node name="Body" parent="Domus/Domu4/Body-Collider" index="0"]
+texture = ExtResource( 10 )
+
+[node name="Trade" parent="Domus/Domu4/Message" index="1"]
+texture = ExtResource( 17 )
+
+[node name="Domu5" parent="Domus" instance=ExtResource( 8 )]
+position = Vector2( 2592, 96 )
+scale = Vector2( 1, -1 )
+tradenum = 5
+tradeCost = 20
+pathToBase = NodePath("../..")
+
+[node name="Body" parent="Domus/Domu5/Body-Collider" index="0"]
+texture = ExtResource( 10 )
+
+[node name="Trade" parent="Domus/Domu5/Message" index="1"]
+texture = ExtResource( 18 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 943.071, 425.225 )
@@ -305,5 +347,11 @@ __meta__ = {
 }
 
 [editable path="Domus/Domu2"]
+
+[editable path="Domus/Domu3"]
+
+[editable path="Domus/Domu4"]
+
+[editable path="Domus/Domu5"]
 
 [editable path="Player"]
