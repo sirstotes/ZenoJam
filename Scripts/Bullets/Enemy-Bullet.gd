@@ -28,8 +28,8 @@ func _process(delta):
 			collision.collider.damage(damage)
 		queue_free()
 	rotation = deg2rad(90)+atan2(linear_velocity.y, linear_velocity.x)
-func set_direction(direciton):
-	linear_velocity = direciton.normalized() * speed_multiplier
+func set_direction(direction):
+	linear_velocity = direction.normalized() * speed_multiplier
 func wrap(self_chunk):
 	if abs(player_chunk - self_chunk) > 1:
 		if player_chunk > self_chunk:

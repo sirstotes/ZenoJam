@@ -7,7 +7,7 @@ var max_health = 0
 export(float) var tolerance = 1
 export(float) var air_multiplier = 0.1
 export(float) var player_damage_buffer = 1
-export(float) var upgrade_time = 3
+export(float) var upgrade_time = 20
 
 var static_shape = ""
 var current_player_buffer = 0

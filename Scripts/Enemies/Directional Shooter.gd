@@ -22,6 +22,7 @@ func _physics_process(delta):
 	if time_until_next_shot < 0:
 		time_until_next_shot = rng.randf_range(timings.x, timings.y)
 		var bullet_instance = bullet.instance()
+		bullet_instance.speed_multiplier = 5
 		bullet_instance.set_direction(player.global_position - global_position)
 		bullet_instance.global_position = self.global_position
 		bullet_holder.add_child(bullet_instance)

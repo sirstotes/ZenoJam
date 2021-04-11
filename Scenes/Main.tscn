@@ -337,7 +337,7 @@ texture = ExtResource( 37 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 943.071, 425.225 )
+position = Vector2( 1024, 408 )
 z_index = 1
 z_as_relative = false
 

@@ -2,8 +2,9 @@ extends Node2D
 export var thingsToSpawn = [preload("res://Objects/Enemies/Walker.tscn"), preload("res://Objects/Enemies/Jumper.tscn"), 
 							preload("res://Objects/Enemies/Floater.tscn"), preload("res://Objects/Enemies/Directional Shooter.tscn"),
 							preload("res://Objects/Enemies/Hexagon Shooter.tscn")]
-export var weights = [250, 150, 100, 75, 50]
+export var weights = [125, 100, 50, 5, 0]
 export var spawnTime = 5
+export var maxEnemies = 10
 var spawnWait = 0
 onready var player = $"../../Player"
 var total_chance = 0
@@ -17,9 +18,11 @@ func _ready():
 	spawnWait = randi()%5
 func _process(delta):
 	spawnWait += delta
-	if spawnWait > spawnTime:
+	if spawnWait > spawnTime and get_parent().get_parent().get_node("Enemies").get_child_count() < maxEnemies:
 		spawnWait = 0
 		spawn()
+		maxEnemies += 1
+		update_weights([weights[0]-5, weights[1]-5, weights[2]+5, weights[3]+5, weights[4]+5])
 func spawn():
 	var possiblePositions = []
 	for c in get_children():
@@ -42,8 +45,6 @@ func spawn():
 		spawn.gravity_inverted = !up
 		if spawn.is_in_group("Enemy"):
 			get_parent().get_parent().get_node("Enemies").add_child(spawn)
-		elif spawn.is_in_group("Coin"):
-			get_parent().get_parent().get_node("Coins").add_child(spawn)
 		get_parent().get_parent().connect("new_chunk", spawn, "move_handler")
 func update_weights(input):
 	weights = input
