@@ -30,6 +30,7 @@ func _process(delta):
 		cooldownWaited -= delta
 		if cooldownWaited < 0:
 			spriteoffset += delta*20
+			$"Body-Collider/Body".position.x = 0
 			$"Body-Collider/Body".position.y = sin(spriteoffset)*5-5
 			$Message.visible = isPlayerNear
 			if Input.is_action_just_released("trade") and isPlayerNear and player.money >= tradeCost:
@@ -48,6 +49,10 @@ func _process(delta):
 					player.bulletAmounts[3] += 5
 				elif tradenum == 5:
 					player.jump_speed += 50
+		else:
+			spriteoffset += delta*5
+			$"Body-Collider/Body".position.x = sin(spriteoffset)*5
+			$"Body-Collider/Body".position.y = 0
 	var self_chunk = int(floor(position.x/screen_size))
 	wrap(self_chunk)
 func wrap(self_chunk):

@@ -47,6 +47,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label2" type="Label" parent="Message"]
+margin_left = -570.0
+margin_top = -510.0
+margin_right = 89.0
+margin_bottom = -177.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+text = "Press E"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Trade" type="Sprite" parent="Message"]
 position = Vector2( 435, -40 )
 texture = ExtResource( 4 )

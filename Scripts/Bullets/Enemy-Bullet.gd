@@ -1,5 +1,5 @@
 extends KinematicBody2D
-var damage = 2
+var damage = 1
 var timeAlive = 0
 var lifeTime = 5
 var linear_velocity = Vector2(0, 0)

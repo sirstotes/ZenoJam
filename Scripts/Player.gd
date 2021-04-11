@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+signal end()
 export(float) var gravity = 980
 export(float) var walk_acceleration = 5000
 export(float) var friction = 5000
@@ -11,7 +12,6 @@ export(int) var max_health = 3
 export(int) var regen_time = 10
 
 var health = 0
-
 var velocity = Vector2()
 var last_position = Vector2()
 var collided_buffer = 0
@@ -19,7 +19,7 @@ var money = 0
 var health_regen = 0
 var on_healer = false
 
-var bulletAmounts = [INF, 0, 0, 10]
+var bulletAmounts = [INF, 0, 0, 0]
 const BULLETS = [preload("res://Objects/Bullets/Bullet-1.tscn"), preload("res://Objects/Bullets/Bullet-2.tscn"), preload("res://Objects/Bullets/Bullet-3.tscn"), preload("res://Objects/Bullets/Bullet-4.tscn")]
 var bullet_selected = 0
 func _ready():
@@ -68,7 +68,8 @@ func damage(amount):
 	health += amount
 	health_regen = 0
 func die():
-	pass
+	visible = false
+	emit_signal("end")
 func _on_gun_shoot():
 	bulletAmounts[bullet_selected] -= 1
 func _on_Healer_body_entered(body):

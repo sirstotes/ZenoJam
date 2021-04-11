@@ -4,7 +4,7 @@ export var thingsToSpawn = [preload("res://Objects/Enemies/Walker.tscn"), preloa
 							preload("res://Objects/Enemies/Hexagon Shooter.tscn")]
 export var weights = [125, 100, 50, 5, 0]
 export var spawnTime = 10
-export var maxEnemies = 3
+export var maxEnemies = 5
 var spawnWait = 0
 onready var player = $"../../Player"
 var total_chance = 0
