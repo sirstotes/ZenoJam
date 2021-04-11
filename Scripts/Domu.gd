@@ -32,11 +32,11 @@ func _process(delta):
 			elif tradenum == 1:
 				player.max_speed += 50
 			elif tradenum == 2:
-				player.get_node("Gun").bullet = load("res://Objects/Bullets/bullet-1.tscn")
+				player.bulletAmounts[1] += 5
 			elif tradenum == 3:
-				player.get_node("Gun").bullet = load("res://Objects/Bullets/bullet-2.tscn")
+				player.bulletAmounts[2] += 5
 			elif tradenum == 4:
-				player.get_node("Gun").bullet = load("res://Objects/Bullets/bullet-3.tscn")
+				player.bulletAmounts[3] += 5
 			elif tradenum == 5:
 				pass
 			elif tradenum == 6:

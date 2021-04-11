@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Sprites/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Mobius.gd" type="Script" id=2]
@@ -12,12 +12,23 @@
 [ext_resource path="res://Sprites/domu-yellow.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/health.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/coin.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/selector.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/domu-green.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Upgrades/speed.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Upgrades/bullet-2.png" type="Texture" id=16]
 [ext_resource path="res://Objects/HealthBehind.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Sprites/health-empty.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/itemslot.png" type="Texture" id=19]
 [ext_resource path="res://Scripts/Spawner.gd" type="Script" id=20]
+[ext_resource path="res://Sprites/bullet-2.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/bullet-3.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/bullet-4.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/bullet.png" type="Texture" id=24]
+[ext_resource path="res://Typo_Round_Regular_Demo.otf" type="DynamicFontData" id=25]
+
+[sub_resource type="DynamicFont" id=1]
+size = 200
+font_data = ExtResource( 25 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -220,7 +231,7 @@ texture = ExtResource( 15 )
 [node name="Domu3" parent="Domus" instance=ExtResource( 8 )]
 position = Vector2( 2528, 224 )
 scale = Vector2( 1, -1 )
-tradenum = 3
+tradenum = 2
 tradeCost = 20
 pathToBase = NodePath("../..")
 
@@ -327,6 +338,148 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BulletBar" type="HBoxContainer" parent="CanvasLayer/UI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -118.0
+margin_top = -66.0
+margin_right = 2244.0
+margin_bottom = 382.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_constants/separation = 190
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/BulletBar"]
+margin_right = 448.0
+margin_bottom = 448.0
+texture = ExtResource( 19 )
+
+[node name="Bullet" type="TextureRect" parent="CanvasLayer/UI/BulletBar/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 80.0
+margin_top = 80.0
+margin_right = -80.0
+margin_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/BulletBar"]
+margin_left = 638.0
+margin_right = 1086.0
+margin_bottom = 448.0
+texture = ExtResource( 19 )
+
+[node name="Bullet" type="TextureRect" parent="CanvasLayer/UI/BulletBar/TextureRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 80.0
+margin_top = 80.0
+margin_right = -80.0
+margin_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/BulletBar/TextureRect2"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -28.0
+margin_right = 112.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+text = "x0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/BulletBar"]
+margin_left = 1276.0
+margin_right = 1724.0
+margin_bottom = 448.0
+texture = ExtResource( 19 )
+
+[node name="Bullet" type="TextureRect" parent="CanvasLayer/UI/BulletBar/TextureRect3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 80.0
+margin_top = 80.0
+margin_right = -80.0
+margin_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/BulletBar/TextureRect3"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -28.0
+margin_right = 112.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+text = "x0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/UI/BulletBar"]
+margin_left = 1914.0
+margin_right = 2362.0
+margin_bottom = 448.0
+texture = ExtResource( 19 )
+
+[node name="Bullet" type="TextureRect" parent="CanvasLayer/UI/BulletBar/TextureRect4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 80.0
+margin_top = 80.0
+margin_right = -80.0
+margin_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/BulletBar/TextureRect4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -28.0
+margin_right = 112.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+text = "x0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="HealthBehinds" type="HBoxContainer" parent="CanvasLayer/UI"]
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -395,6 +548,17 @@ margin_left = 668.0
 margin_right = 972.0
 margin_bottom = 608.0
 texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selector" type="TextureRect" parent="CanvasLayer/UI"]
+margin_left = 392.0
+margin_top = 532.0
+margin_right = 872.0
+margin_bottom = 1012.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

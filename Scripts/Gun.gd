@@ -1,4 +1,5 @@
 extends Sprite
+signal on_shoot()
 export var bullet = preload("../Objects/Bullets/Bullet-3.tscn")
 export(NodePath) var bulletHolderPath
 export var speed = 10
@@ -18,6 +19,7 @@ func _process(delta):
 		modulate = Color(1, 1, 1)
 	rotation = deg2rad(rotationOffset)+atan2(get_global_mouse_position().y-global_position.y, get_global_mouse_position().x-global_position.x)
 	if (Input.is_action_just_pressed("shoot") and cooldownWaited>cooldown):
+		emit_signal("on_shoot")
 		for child in get_children():
 			var newBullet = bullet.instance()
 			newBullet.global_position=child.global_position

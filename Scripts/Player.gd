@@ -17,10 +17,12 @@ var last_position = Vector2()
 var collided_buffer = 0
 var money = 0
 var health_regen = 0
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
+var bulletAmounts = [INF, 0, 0, 0]
+const BULLETS = [preload("res://Objects/Bullets/Bullet-1.tscn"), preload("res://Objects/Bullets/Bullet-2.tscn"), preload("res://Objects/Bullets/Bullet-3.tscn")]
+var bullet_selected = 0
+func _ready():
+	$Gun.connect("on_shoot", self, "_on_gun_shoot")
 func _physics_process(delta):
 	if abs(last_position.x - position.x) < 0.01 and collided_buffer <= 0:
 		collided_buffer = 10
@@ -55,8 +57,11 @@ func _process(delta):
 	if health_regen > regen_time and health > 0: 
 		health_regen = 0
 		health -= 1
+	$Gun.bullet = BULLETS[bullet_selected]
 func damage(amount):
 	health += amount
 	health_regen = 0
 func die():
 	pass
+func _on_gun_shoot():
+	bulletAmounts[bullet_selected] -= 1
