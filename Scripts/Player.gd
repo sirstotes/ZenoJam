@@ -17,6 +17,7 @@ var last_position = Vector2()
 var collided_buffer = 0
 var money = 0
 var health_regen = 0
+var on_healer = false
 
 var bulletAmounts = [INF, 0, 0, 0]
 const BULLETS = [preload("res://Objects/Bullets/Bullet-1.tscn"), preload("res://Objects/Bullets/Bullet-2.tscn"), preload("res://Objects/Bullets/Bullet-3.tscn")]
@@ -54,10 +55,15 @@ func _physics_process(delta):
 		die()
 func _process(delta):
 	health_regen += delta
-	if health_regen > regen_time and health > 0: 
+	if health_regen > (regen_time/3 if on_healer else regen_time) and health > 0: 
 		health_regen = 0
 		health -= 1
 	$Gun.bullet = BULLETS[bullet_selected]
+	if on_healer:
+		modulate = Color(sin(health_regen*10)/2+1.5, 0.75, 0.75, 1)
+		$Gun.cooldownWaited = 0 
+	else:
+		modulate = Color(1, 1, 1, 1)
 func damage(amount):
 	health += amount
 	health_regen = 0
@@ -65,3 +71,9 @@ func die():
 	pass
 func _on_gun_shoot():
 	bulletAmounts[bullet_selected] -= 1
+func _on_Healer_body_entered(body):
+	if body == self:
+		on_healer = true
+func _on_Healer_body_exited(body):
+	if body == self:
+		on_healer = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Sprites/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Mobius.gd" type="Script" id=2]
@@ -27,6 +27,10 @@
 [ext_resource path="res://Typo_Round_Regular_Demo.otf" type="DynamicFontData" id=25]
 [ext_resource path="res://Sprites/domu-blue.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/Upgrades/bullet-3.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/spawner.png" type="Texture" id=28]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 31, 45 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -154,6 +158,25 @@ position = Vector2( 642, 450 )
 [node name="Spawn13" type="VisibilityNotifier2D" parent="Screen 2/SpawnLocations2"]
 position = Vector2( 866, 226 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Screen 2"]
+position = Vector2( 64, 448 )
+
+[node name="Sprite" type="Sprite" parent="Screen 2/StaticBody2D"]
+position = Vector2( 0, -8 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 28 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Screen 2/StaticBody2D"]
+position = Vector2( 0, -8 )
+polygon = PoolVector2Array( -31, -11, -51, 8, 51, 8, 31, -11 )
+
+[node name="Healer" type="Area2D" parent="Screen 2/StaticBody2D"]
+position = Vector2( 0, -19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Screen 2/StaticBody2D/Healer"]
+position = Vector2( 0, -45 )
+shape = SubResource( 2 )
+
 [node name="Screen 3" type="Node2D" parent="."]
 position = Vector2( 1920, 0 )
 
@@ -214,7 +237,7 @@ position = Vector2( 704, 448 )
 [node name="Domus" type="Node2D" parent="."]
 
 [node name="Domu" parent="Domus" instance=ExtResource( 8 )]
-position = Vector2( 1792, 288 )
+position = Vector2( 1376, 480 )
 tradeCost = 10
 pathToBase = NodePath("../..")
 
@@ -244,8 +267,8 @@ texture = ExtResource( 10 )
 texture = ExtResource( 16 )
 
 [node name="Domu4" parent="Domus" instance=ExtResource( 8 )]
-position = Vector2( 1376, 480 )
-tradenum = 2
+position = Vector2( 1824, 288 )
+tradenum = 3
 tradeCost = 10
 pathToBase = NodePath("../..")
 
@@ -587,6 +610,8 @@ __meta__ = {
 }
 
 [node name="Enemy Bullets" type="Node2D" parent="."]
+[connection signal="body_entered" from="Screen 2/StaticBody2D/Healer" to="Player" method="_on_Healer_body_entered"]
+[connection signal="body_exited" from="Screen 2/StaticBody2D/Healer" to="Player" method="_on_Healer_body_exited"]
 
 [editable path="Domus/Domu2"]
 
