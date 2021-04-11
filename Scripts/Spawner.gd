@@ -1,6 +1,6 @@
 extends Node2D
 export var thingsToSpawn = [preload("res://Objects/Enemies/Walker.tscn"), preload("res://Objects/Coin.tscn")]
-export var spawnTime = 20
+export var spawnTime = 15
 var spawnWait = 0
 onready var player = $"../../Player"
 
@@ -8,7 +8,7 @@ var screen_size = 64 * 15
 var screen_height = 64 * 9
 
 func _ready():
-	spawnWait = 0
+	spawnWait = randi()%15
 func _process(delta):
 	spawnWait += delta
 	if spawnWait > spawnTime:
