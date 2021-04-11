@@ -1,5 +1,7 @@
 extends Node2D
-export var thingsToSpawn = [preload("res://Objects/Enemies/Walker.tscn"), preload("res://Objects/Enemies/Jumper.tscn"), preload("res://Objects/Enemies/Floater.tscn")]
+export var thingsToSpawn = [preload("res://Objects/Enemies/Walker.tscn"), preload("res://Objects/Enemies/Jumper.tscn"), 
+							preload("res://Objects/Enemies/Floater.tscn"), preload("res://Objects/Enemies/Directional Shooter.tscn"),
+							preload("res://Objects/Enemies/Hexagon Shooter.tscn")]
 export var spawnTime = 5
 var spawnWait = 0
 onready var player = $"../../Player"
@@ -21,7 +23,8 @@ func spawn():
 			possiblePositions.append(c)
 	if len(possiblePositions) > 1:
 		var pos = possiblePositions[randi()%(len(possiblePositions))].global_position
-		var spawn = thingsToSpawn[randi()%(len(thingsToSpawn))].instance()
+		var rand_index = randi()%(len(thingsToSpawn))
+		var spawn = thingsToSpawn[rand_index].instance()
 		spawn.global_position = pos
 		var up = randf() > 0
 		spawn.player_chunk = int(floor(player.global_position.x/screen_size))
@@ -32,4 +35,3 @@ func spawn():
 		elif spawn.is_in_group("Coin"):
 			get_parent().get_parent().get_node("Coins").add_child(spawn)
 		get_parent().get_parent().connect("new_chunk", spawn, "move_handler")
-		print("Spawn")

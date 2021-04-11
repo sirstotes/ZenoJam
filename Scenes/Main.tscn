@@ -572,6 +572,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Enemy Bullets" type="Node2D" parent="."]
+
 [editable path="Domus/Domu2"]
 
 [editable path="Domus/Domu3"]

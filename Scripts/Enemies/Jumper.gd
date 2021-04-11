@@ -31,7 +31,6 @@ func _physics_process(delta):
 		add_to_group("Jumping")
 		current_delay = 0
 		var distance = player.global_position.x - global_position.x
-		print(max_speed)
 		if distance > 0:
 			velocity.x = jump_speed * sideways_multiplier
 		else:

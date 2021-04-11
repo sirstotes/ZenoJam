@@ -42,6 +42,5 @@ func move_handler(new_chunk):
 func _on_Bullet_body_entered(body):
 	if body.is_in_group("Enemy"):
 		body.health += damage
-		print(body.health)
 		add_to_group("Freeing")
 		queue_free()

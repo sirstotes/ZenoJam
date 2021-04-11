@@ -8,6 +8,7 @@ export(float) var tolerance = 1
 export(float) var air_multiplier = 0.1
 export(float) var player_damage_buffer = 1
 
+
 var current_player_buffer = 0
 var health = 0
 
@@ -27,7 +28,7 @@ func _physics_process(delta):
 	add_to_group("Enemy")
 func base_stuff(delta):
 	var multiplier = air_multiplier
-	if is_on_ceiling():
+	if is_on_ceiling() and !is_in_group("Jumping"):
 		velocity.y = 0
 	if is_on_floor() and !is_in_group("Jumping"):
 		multiplier = 1
@@ -40,16 +41,13 @@ func base_stuff(delta):
 		if collision.collider.name == "TileMap" or collision.collider.name == "TileMap2" or collision.collider.name == "TileMap3":
 			continue
 		if collision.collider.is_in_group("Bullet") and not collision.collider.is_in_group("Freeing"):
-			print("Bullet Contact")
 			collision.collider.add_to_group("Freeing")
 			collision.collider.queue_free()
 			health += collision.collider.damage
 		if collision.collider.is_in_group("Player"):
 			if current_player_buffer > player_damage_buffer:
 				current_player_buffer = 0
-				print(collision.collider.health)
 				collision.collider.damage(1)
-				print("Player damage")
 	current_player_buffer += delta
 	if health >= max_health:
 		die()
