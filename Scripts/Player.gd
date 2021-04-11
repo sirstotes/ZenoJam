@@ -19,8 +19,8 @@ var money = 0
 var health_regen = 0
 var on_healer = false
 
-var bulletAmounts = [INF, 0, 0, 0]
-const BULLETS = [preload("res://Objects/Bullets/Bullet-1.tscn"), preload("res://Objects/Bullets/Bullet-2.tscn"), preload("res://Objects/Bullets/Bullet-3.tscn")]
+var bulletAmounts = [INF, 0, 0, 10]
+const BULLETS = [preload("res://Objects/Bullets/Bullet-1.tscn"), preload("res://Objects/Bullets/Bullet-2.tscn"), preload("res://Objects/Bullets/Bullet-3.tscn"), preload("res://Objects/Bullets/Bullet-4.tscn")]
 var bullet_selected = 0
 func _ready():
 	$Gun.connect("on_shoot", self, "_on_gun_shoot")

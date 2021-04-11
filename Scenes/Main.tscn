@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Sprites/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Mobius.gd" type="Script" id=2]
@@ -28,9 +28,18 @@
 [ext_resource path="res://Sprites/domu-blue.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/Upgrades/bullet-3.png" type="Texture" id=27]
 [ext_resource path="res://Sprites/spawner.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/spawner-green.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/spawner-blue.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/spawner-yellow.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Upgrades/shooter-4.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/spawner-pink.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/domu-pink.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/domu-purple.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Upgrades/jump.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/spawner-purple.png" type="Texture" id=37]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 31, 45 )
+extents = Vector2( 30, 20 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -117,7 +126,7 @@ scale = Vector2( 0.1, 0.1 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 640, 640 )
 format = 1
-tile_data = PoolIntArray( -65536, 1610612736, 65537, -65535, 1610612736, 65537, -65534, 1610612736, 65537, -65533, 1610612736, 65537, -65532, 1610612736, 65537, -65531, 1610612736, 65537, -65530, 1610612736, 65537, -65529, 1610612736, 65537, -65528, 1610612736, 65537, -65527, 1610612736, 65537, -65526, 1610612736, 65537, -65525, 1610612736, 65537, -65524, 1610612736, 65537, -65523, 1610612736, 65537, -65522, 1610612736, 65537, 0, 1610612736, 1, 1, 1610612744, 65536, 2, 1610612744, 65537, 3, 1610612736, 1, 4, 1610612736, 1, 5, 1610612744, 65536, 6, 1610612744, 65537, 7, 1610612736, 1, 8, 1610612736, 1, 9, 1610612736, 1, 10, 1610612736, 1, 11, 1610612744, 65536, 12, 1610612736, 65537, 13, 1610612736, 65537, 14, 1610612736, 65537, 65537, 1610612740, 1, 65538, 1610612740, 0, 65541, 1610612740, 1, 65542, 1610612740, 0, 65547, 1610612740, 1, 65548, 1610612736, 1, 65549, 1610612736, 1, 65550, 1610612736, 1, 262148, 4, 0, 262149, 0, 1, 262150, 0, 1, 262151, 0, 1, 262152, 4, 1, 327684, 4, 65536, 327685, 0, 131073, 327686, 0, 131073, 327687, 0, 131073, 327688, 4, 65537, 327692, 0, 0, 327693, 2, 1, 327694, 2, 2, 393228, 1, 65536, 458752, 0, 1, 458753, 0, 1, 458754, 0, 1, 458755, 4, 1, 458763, 4, 0, 458764, 0, 65538, 524288, 0, 65537, 524289, 0, 65537, 524290, 0, 65537, 524291, 8, 65536, 524292, 0, 1, 524293, 0, 1, 524294, 0, 1, 524295, 0, 1, 524296, 0, 1, 524297, 0, 1, 524298, 0, 1, 524299, 8, 65537, 524300, 6, 65536, 524301, 0, 1, 524302, 0, 1, 589824, 0, 65537, 589825, 0, 65537, 589826, 0, 65537, 589827, 0, 65537, 589828, 0, 65537, 589829, 0, 65537, 589830, 0, 65537, 589831, 0, 65537, 589832, 0, 65537, 589833, 0, 65537, 589834, 0, 65537, 589835, 0, 65537, 589836, 0, 65537, 589837, 0, 65537, 589838, 0, 65537 )
+tile_data = PoolIntArray( -65536, 1610612736, 65537, -65535, 1610612736, 65537, -65534, 1610612736, 65537, -65533, 1610612736, 65537, -65532, 1610612736, 65537, -65531, 1610612736, 65537, -65530, 1610612736, 65537, -65529, 1610612736, 65537, -65528, 1610612736, 65537, -65527, 1610612736, 65537, -65526, 1610612736, 65537, -65525, 1610612736, 65537, -65524, 1610612736, 65537, -65523, 1610612736, 65537, -65522, 1610612736, 65537, 0, 1610612736, 1, 1, 1610612744, 65536, 2, 1610612744, 65537, 3, 1610612736, 1, 4, 1610612736, 1, 5, 1610612744, 65536, 6, 1610612744, 65537, 7, 1610612736, 1, 8, 1610612736, 1, 9, 1610612736, 1, 10, 1610612736, 1, 11, 1610612744, 65536, 12, 1610612736, 65537, 13, 1610612736, 65537, 14, 1610612736, 65537, 65537, 1610612740, 1, 65538, 1610612740, 0, 65541, 1610612740, 1, 65542, 1610612740, 0, 65547, 1610612740, 1, 65548, 1610612736, 1, 65549, 1610612736, 1, 65550, 1610612736, 1, 262148, 4, 0, 262149, 0, 1, 262150, 0, 1, 262151, 0, 1, 262152, 4, 1, 327684, 4, 65536, 327685, 0, 131073, 327686, 0, 131073, 327687, 0, 131073, 327688, 4, 65537, 327692, 0, 0, 327693, 2, 1, 327694, 2, 2, 393228, 1, 65536, 458752, 0, 1, 458753, 0, 1, 458754, 0, 1, 458755, 4, 1, 458762, 4, 0, 458763, 0, 1, 458764, 0, 65538, 524288, 0, 65537, 524289, 0, 65537, 524290, 0, 65537, 524291, 8, 65536, 524292, 0, 1, 524293, 0, 1, 524294, 0, 1, 524295, 0, 1, 524296, 0, 1, 524297, 0, 1, 524298, 8, 65537, 524299, 0, 65537, 524300, 6, 65536, 524301, 0, 1, 524302, 0, 1, 589824, 0, 65537, 589825, 0, 65537, 589826, 0, 65537, 589827, 0, 65537, 589828, 0, 65537, 589829, 0, 65537, 589830, 0, 65537, 589831, 0, 65537, 589832, 0, 65537, 589833, 0, 65537, 589834, 0, 65537, 589835, 0, 65537, 589836, 0, 65537, 589837, 0, 65537, 589838, 0, 65537 )
 
 [node name="Frontdrop" type="TileMap" parent="Screen 2"]
 visible = false
@@ -174,7 +183,7 @@ polygon = PoolVector2Array( -31, -11, -51, 8, 51, 8, 31, -11 )
 position = Vector2( 0, -19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Screen 2/StaticBody2D/Healer"]
-position = Vector2( 0, -45 )
+position = Vector2( 0, -20 )
 shape = SubResource( 2 )
 
 [node name="Screen 3" type="Node2D" parent="."]
@@ -192,7 +201,7 @@ scale = Vector2( 0.1, 0.1 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 640, 640 )
 format = 1
-tile_data = PoolIntArray( -65536, 1610612736, 65537, -65535, 1610612736, 65537, -65534, 1610612736, 65537, -65533, 1610612736, 65537, -65532, 1610612736, 65537, -65531, 1610612736, 65537, -65530, 1610612736, 65537, -65529, 1610612736, 65537, -65528, 1610612736, 65537, -65527, 1610612736, 65537, -65526, 1610612736, 65537, -65525, 1610612736, 65537, -65524, 1610612736, 65537, -65523, 1610612736, 65537, -65522, 1610612736, 65537, 0, 1610612736, 65537, 1, 1610612736, 65537, 2, 1610612736, 65537, 3, 1610612736, 65537, 4, 1610612744, 65537, 5, 1610612736, 1, 6, 1610612736, 1, 7, 1610612736, 1, 8, 1610612736, 1, 9, 1610612736, 1, 10, 1610612736, 1, 11, 1610612736, 1, 12, 1610612736, 1, 13, 1610612736, 1, 14, 1610612736, 1, 65536, 1610612736, 1, 65537, 1610612736, 1, 65538, 1610612736, 1, 65539, 1610612736, 1, 65540, 1610612740, 0, 131080, 1610612738, 2, 131081, 1610612738, 1, 131082, 1610612738, 0, 262155, 1610612739, 0, 327682, 2, 0, 327683, 2, 1, 327684, 2, 2, 327693, 1610612739, 0, 393223, 7, 1, 458759, 3, 0, 458760, 7, 1, 524288, 0, 1, 524289, 0, 1, 524290, 0, 1, 524291, 0, 1, 524292, 0, 1, 524293, 0, 1, 524294, 0, 1, 524295, 0, 1, 524296, 0, 1, 524297, 0, 1, 524298, 0, 1, 524299, 0, 1, 524300, 0, 1, 524301, 0, 1, 524302, 0, 1, 589824, 0, 65537, 589825, 0, 65537, 589826, 0, 65537, 589827, 0, 65537, 589828, 0, 65537, 589829, 0, 65537, 589830, 0, 65537, 589831, 0, 65537, 589832, 0, 65537, 589833, 0, 65537, 589834, 0, 65537, 589835, 0, 65537, 589836, 0, 65537, 589837, 0, 65537, 589838, 0, 65537 )
+tile_data = PoolIntArray( -65536, 1610612736, 65537, -65535, 1610612736, 65537, -65534, 1610612736, 65537, -65533, 1610612736, 65537, -65532, 1610612736, 65537, -65531, 1610612736, 65537, -65530, 1610612736, 65537, -65529, 1610612736, 65537, -65528, 1610612736, 65537, -65527, 1610612736, 65537, -65526, 1610612736, 65537, -65525, 1610612736, 65537, -65524, 1610612736, 65537, -65523, 1610612736, 65537, -65522, 1610612736, 65537, 0, 1610612736, 65537, 1, 1610612736, 65537, 2, 1610612736, 65537, 3, 1610612736, 65537, 4, 1610612744, 65537, 5, 1610612736, 1, 6, 1610612736, 1, 7, 1610612736, 1, 8, 1610612736, 1, 9, 1610612736, 1, 10, 1610612736, 1, 11, 1610612736, 1, 12, 1610612736, 1, 13, 1610612736, 1, 14, 1610612736, 1, 65536, 1610612736, 1, 65537, 1610612736, 1, 65538, 1610612736, 1, 65539, 1610612736, 1, 65540, 1610612740, 0, 131080, 1610612738, 2, 131081, 1610612738, 1, 131082, 1610612738, 0, 262155, 1610612739, 0, 327682, 2, 0, 327683, 2, 1, 327684, 2, 2, 327693, 1610612739, 0, 393223, 4, 0, 393224, 4, 1, 458758, 4, 0, 458759, 8, 65537, 458760, 8, 65536, 458761, 4, 1, 524288, 0, 1, 524289, 0, 1, 524290, 0, 1, 524291, 0, 1, 524292, 0, 1, 524293, 0, 1, 524294, 8, 65537, 524295, 0, 65537, 524296, 0, 65537, 524297, 8, 65536, 524298, 0, 1, 524299, 0, 1, 524300, 0, 1, 524301, 0, 1, 524302, 0, 1, 589824, 0, 65537, 589825, 0, 65537, 589826, 0, 65537, 589827, 0, 65537, 589828, 0, 65537, 589829, 0, 65537, 589830, 0, 65537, 589831, 0, 65537, 589832, 0, 65537, 589833, 0, 65537, 589834, 0, 65537, 589835, 0, 65537, 589836, 0, 65537, 589837, 0, 65537, 589838, 0, 65537 )
 
 [node name="Frontdrop" type="TileMap" parent="Screen 3"]
 visible = false
@@ -237,12 +246,12 @@ position = Vector2( 704, 448 )
 [node name="Domus" type="Node2D" parent="."]
 
 [node name="Domu" parent="Domus" instance=ExtResource( 8 )]
-position = Vector2( 1376, 480 )
+position = Vector2( 1376, 464 )
 tradeCost = 10
 pathToBase = NodePath("../..")
 
 [node name="Domu2" parent="Domus" instance=ExtResource( 8 )]
-position = Vector2( 1856, 480 )
+position = Vector2( 1856, 464 )
 tradenum = 1
 tradeCost = 20
 pathToBase = NodePath("../..")
@@ -253,11 +262,15 @@ texture = ExtResource( 14 )
 [node name="Trade" parent="Domus/Domu2/Message" index="1"]
 texture = ExtResource( 15 )
 
+[node name="Sprite" parent="Domus/Domu2/Spawner" index="1"]
+texture = ExtResource( 29 )
+
 [node name="Domu3" parent="Domus" instance=ExtResource( 8 )]
-position = Vector2( 2528, 224 )
+position = Vector2( 2528, 240 )
 scale = Vector2( 1, -1 )
 tradenum = 2
 tradeCost = 5
+waitTime = 30
 pathToBase = NodePath("../..")
 
 [node name="Body" parent="Domus/Domu3/Body-Collider" index="0"]
@@ -266,10 +279,16 @@ texture = ExtResource( 10 )
 [node name="Trade" parent="Domus/Domu3/Message" index="1"]
 texture = ExtResource( 16 )
 
+[node name="Sprite" parent="Domus/Domu3/Spawner" index="1"]
+texture = ExtResource( 31 )
+
 [node name="Domu4" parent="Domus" instance=ExtResource( 8 )]
-position = Vector2( 1824, 288 )
+position = Vector2( 1824, 176 )
+scale = Vector2( 1, -1 )
 tradenum = 3
 tradeCost = 10
+tradeCooldown = 15
+waitTime = 60
 pathToBase = NodePath("../..")
 
 [node name="Body" parent="Domus/Domu4/Body-Collider" index="0"]
@@ -277,6 +296,43 @@ texture = ExtResource( 26 )
 
 [node name="Trade" parent="Domus/Domu4/Message" index="1"]
 texture = ExtResource( 27 )
+
+[node name="Sprite" parent="Domus/Domu4/Spawner" index="1"]
+texture = ExtResource( 30 )
+
+[node name="Domu5" parent="Domus" instance=ExtResource( 8 )]
+position = Vector2( 160, 176 )
+scale = Vector2( 1, -1 )
+tradenum = 4
+tradeCost = 10
+tradeCooldown = 15
+waitTime = 120
+pathToBase = NodePath("../..")
+
+[node name="Body" parent="Domus/Domu5/Body-Collider" index="0"]
+texture = ExtResource( 34 )
+
+[node name="Trade" parent="Domus/Domu5/Message" index="1"]
+texture = ExtResource( 32 )
+
+[node name="Sprite" parent="Domus/Domu5/Spawner" index="1"]
+texture = ExtResource( 33 )
+
+[node name="Domu6" parent="Domus" instance=ExtResource( 8 )]
+position = Vector2( 2144, 464 )
+tradenum = 5
+tradeCost = 20
+waitTime = 15
+pathToBase = NodePath("../..")
+
+[node name="Body" parent="Domus/Domu6/Body-Collider" index="0"]
+texture = ExtResource( 35 )
+
+[node name="Trade" parent="Domus/Domu6/Message" index="1"]
+texture = ExtResource( 36 )
+
+[node name="Sprite" parent="Domus/Domu6/Spawner" index="1"]
+texture = ExtResource( 37 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -618,5 +674,9 @@ __meta__ = {
 [editable path="Domus/Domu3"]
 
 [editable path="Domus/Domu4"]
+
+[editable path="Domus/Domu5"]
+
+[editable path="Domus/Domu6"]
 
 [editable path="Player"]

@@ -1,9 +1,9 @@
 extends KinematicBody2D
-var damage = 2
+export var damage = 2
 var timeAlive = 0
-var lifeTime = 10
+export var lifeTime = 10
 var linear_velocity = Vector2(0, 0)
-var speed_multiplier = 1
+export var speed_multiplier = 1
 
 var screen_size = 64 * 15
 var screen_height = 64 * 9
@@ -26,6 +26,10 @@ func _process(delta):
 	wrap(self_chunk)
 	if collision != null:
 		linear_velocity = linear_velocity.bounce(collision.normal)
+		if collision.collider.is_in_group("Enemy"):
+			collision.collider.hurt(damage)
+			add_to_group("Freeing")
+			queue_free()
 	rotation = deg2rad(90)+atan2(linear_velocity.y, linear_velocity.x)
 func wrap(self_chunk):
 	if abs(player_chunk - self_chunk) > 1:
