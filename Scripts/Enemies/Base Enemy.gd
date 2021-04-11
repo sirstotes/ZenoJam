@@ -2,11 +2,9 @@ extends KinematicBody2D
 
 export(float) var gravity = 980
 export(float) var walk_acceleration = 5000
-export(float) var friction = 5000
 var max_speed = 1000
 var max_health = 0
 export(float) var tolerance = 1
-export(float) var jump_speed = 500
 export(float) var air_multiplier = 0.1
 export(float) var player_damage_buffer = 1
 
@@ -33,9 +31,10 @@ func base_stuff(delta):
 	var multiplier = air_multiplier
 	if is_on_ceiling():
 		velocity.y = 0
-	if is_on_floor():
+	if is_on_floor() and !is_in_group("jumping"):
 		multiplier = 1
 		velocity.y = 0
+	remove_from_group("jumping")
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 	move_and_slide(velocity, Vector2(0, -1))
 	for i in get_slide_count():

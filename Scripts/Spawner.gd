@@ -1,6 +1,6 @@
 extends Node2D
 export var thingsToSpawn = [preload("res://Objects/Enemies/Walker.tscn"), preload("res://Objects/Coin.tscn")]
-export var spawnTime = 2
+export var spawnTime = 20
 var spawnWait = 0
 onready var player = $"../../Player"
 

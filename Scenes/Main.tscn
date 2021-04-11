@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Sprites/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Mobius.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sprites/domu-yellow.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/health.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/coin.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Enemies/Jumper.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Sprites/domu-green.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Upgrades/speed.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Upgrades/bullet-2.png" type="Texture" id=16]
@@ -234,6 +235,9 @@ texture = ExtResource( 10 )
 texture = ExtResource( 16 )
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="KinematicBody2D" parent="Enemies" instance=ExtResource( 13 )]
+position = Vector2( 1067.78, 241.623 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 943.071, 425.225 )
