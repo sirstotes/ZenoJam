@@ -78,6 +78,10 @@ func wrap(self_chunk):
 func die():
 	var c = coin.instance()
 	c.global_position = global_position
+	c.player_chunk = player_chunk
+	c.scale.y = scale.y
+	c.gravity_inverted = gravity_inverted
+	get_parent().get_parent().connect("new_chunk", c, "move_handler")
 	get_parent().get_parent().get_node("Coins").add_child(c)
 	queue_free()
 
