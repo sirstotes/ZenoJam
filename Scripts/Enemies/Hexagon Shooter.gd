@@ -20,7 +20,6 @@ func _ready():
 	rng.randomize()
 	$Sprite.texture = set_color("blue", "hex")
 	max_speed = 100000
-
 func _physics_process(delta):
 	time_until_next_shot -= delta
 	if time_until_next_shot < 0:
@@ -43,7 +42,7 @@ func _physics_process(delta):
 			print("Bullet Contact")
 			collision.collider.add_to_group("Freeing")
 			collision.collider.queue_free()
-			health += collision.collider.damage
+			hurt(collision.collider.damage)
 		if collision.collider.is_in_group("Player"):
 			if current_player_buffer > player_damage_buffer:
 				current_player_buffer = 0

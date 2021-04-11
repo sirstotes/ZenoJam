@@ -9,7 +9,6 @@ export(float) var speed_multiplier = 0.001
 func _ready():	
 	$Sprite.texture = set_color("blue", "circle")
 	max_speed = 100000
-
 func _physics_process(delta):
 	velocity += ((player.global_position+Vector2(0,-50))-global_position).normalized()*acceleration
 	velocity.x = clamp(velocity.x, -max_speed*speed_multiplier, max_speed*speed_multiplier)
@@ -23,7 +22,7 @@ func _physics_process(delta):
 			print("Bullet Contact")
 			collision.collider.add_to_group("Freeing")
 			collision.collider.queue_free()
-			health += collision.collider.damage
+			hurt(collision.collider.damage)
 		if collision.collider.is_in_group("Player"):
 			if current_player_buffer > player_damage_buffer:
 				current_player_buffer = 0

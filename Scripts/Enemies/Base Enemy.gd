@@ -22,8 +22,16 @@ var velocity = Vector2()
 
 var player_chunk = 0
 var coin = preload("res://Objects/Coin.tscn")
+var modvalue = 1
+
 func _init():
 	set_color("blue", "tri")
+func _process(delta):
+	if modvalue > 1:
+		modvalue -= delta*40
+	else:
+		modvalue = 1
+	modulate = Color(modvalue, modvalue, modvalue, 1)
 func _physics_process(delta):
 	add_to_group("Enemy")
 func base_stuff(delta):
@@ -43,7 +51,7 @@ func base_stuff(delta):
 		if collision.collider.is_in_group("Bullet") and not collision.collider.is_in_group("Freeing"):
 			collision.collider.add_to_group("Freeing")
 			collision.collider.queue_free()
-			health += collision.collider.damage
+			hurt(collision.collider.damage)
 		if collision.collider.is_in_group("Player"):
 			if current_player_buffer > player_damage_buffer:
 				current_player_buffer = 0
@@ -92,3 +100,6 @@ func move_handler(new_chunk):
 	var self_chunk = int(floor(global_position.x/screen_size))
 	player_chunk = new_chunk
 	wrap(self_chunk)
+func hurt(amount):
+	health += amount
+	modvalue = 10

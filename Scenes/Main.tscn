@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Sprites/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Mobius.gd" type="Script" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://Sprites/bullet-4.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/bullet.png" type="Texture" id=24]
 [ext_resource path="res://Typo_Round_Regular_Demo.otf" type="DynamicFontData" id=25]
+[ext_resource path="res://Sprites/domu-blue.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Upgrades/bullet-3.png" type="Texture" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -232,7 +234,7 @@ texture = ExtResource( 15 )
 position = Vector2( 2528, 224 )
 scale = Vector2( 1, -1 )
 tradenum = 2
-tradeCost = 20
+tradeCost = 5
 pathToBase = NodePath("../..")
 
 [node name="Body" parent="Domus/Domu3/Body-Collider" index="0"]
@@ -240,6 +242,18 @@ texture = ExtResource( 10 )
 
 [node name="Trade" parent="Domus/Domu3/Message" index="1"]
 texture = ExtResource( 16 )
+
+[node name="Domu4" parent="Domus" instance=ExtResource( 8 )]
+position = Vector2( 1376, 480 )
+tradenum = 2
+tradeCost = 10
+pathToBase = NodePath("../..")
+
+[node name="Body" parent="Domus/Domu4/Body-Collider" index="0"]
+texture = ExtResource( 26 )
+
+[node name="Trade" parent="Domus/Domu4/Message" index="1"]
+texture = ExtResource( 27 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -577,5 +591,7 @@ __meta__ = {
 [editable path="Domus/Domu2"]
 
 [editable path="Domus/Domu3"]
+
+[editable path="Domus/Domu4"]
 
 [editable path="Player"]
