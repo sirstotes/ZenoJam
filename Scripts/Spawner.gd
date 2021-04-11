@@ -3,8 +3,8 @@ export var thingsToSpawn = [preload("res://Objects/Enemies/Walker.tscn"), preloa
 							preload("res://Objects/Enemies/Floater.tscn"), preload("res://Objects/Enemies/Directional Shooter.tscn"),
 							preload("res://Objects/Enemies/Hexagon Shooter.tscn")]
 export var weights = [125, 100, 50, 5, 0]
-export var spawnTime = 5
-export var maxEnemies = 10
+export var spawnTime = 10
+export var maxEnemies = 3
 var spawnWait = 0
 onready var player = $"../../Player"
 var total_chance = 0
@@ -48,5 +48,6 @@ func spawn():
 		get_parent().get_parent().connect("new_chunk", spawn, "move_handler")
 func update_weights(input):
 	weights = input
+	total_chance = 0
 	for i in weights:
 		total_chance += i
