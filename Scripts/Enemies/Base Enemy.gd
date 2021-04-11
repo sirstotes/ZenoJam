@@ -7,10 +7,14 @@ var max_health = 0
 export(float) var tolerance = 1
 export(float) var air_multiplier = 0.1
 export(float) var player_damage_buffer = 1
+export(float) var upgrade_time = 3
 
-
+var static_shape = ""
 var current_player_buffer = 0
 var health = 0
+var stage = 0
+
+var time_alive = 0
 
 var properties = {"blue": [100, 2], "green": [200, 4], "yellow": [300, 6], "red": [400, 8]}
 
@@ -27,6 +31,17 @@ var modvalue = 1
 func _init():
 	set_color("blue", "tri")
 func _process(delta):
+	time_alive += delta
+	if time_alive > upgrade_time:
+		stage += 1
+		if stage == 1:
+			$Sprite.texture = set_color("green", static_shape)
+		elif stage == 2:
+			$Sprite.texture = set_color("yellow", static_shape)
+		elif stage == 3:
+			$Sprite.texture = set_color("red", static_shape)
+		time_alive = 0
+		print("upgraded")
 	if modvalue > 1:
 		modvalue -= delta*40
 	else:
@@ -92,8 +107,11 @@ func die():
 	queue_free()
 
 func set_color(color, shape):
+	static_shape = shape
 	max_speed = properties[color][0]
 	max_health = properties[color][1]
+	if shape == "square" or shape == "hex" or shape == "circle":
+		max_speed = 100000
 	return load("res://Sprites/" + shape + "-" + color + ".png")
 
 func move_handler(new_chunk):
