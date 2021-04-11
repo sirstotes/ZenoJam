@@ -47,7 +47,7 @@ func base_stuff(delta):
 			collision.collider.add_to_group("freeing")
 			collision.collider.queue_free()
 			health += collision.collider.damage
-		if collision.collider.name == "Player":
+		if collision.collider.is_in_group("Player"):
 			if current_player_buffer > player_damage_buffer:
 				current_player_buffer = 0
 				print(collision.collider.health)
