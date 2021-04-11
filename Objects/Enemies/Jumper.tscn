@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Enemies/Walker.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Enemies/Jumper.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/tri-yellow.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/face-5.png" type="Texture" id=3]
 

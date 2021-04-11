@@ -23,7 +23,9 @@ var velocity = Vector2()
 
 var player_chunk = 0
 func _init():
-	set_color("blue")
+	set_color("blue", "tri")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	add_to_group("enemy")
 	base_stuff(delta)
@@ -78,10 +80,12 @@ func wrap(self_chunk):
 		global_position.y = ((global_position.y - (screen_height/2)) * -1) + (screen_height/2)
 func die():
 	queue_free()
-func set_color(color):
+
+func set_color(color, shape):
 	max_speed = properties[color][0]
 	max_health = properties[color][1]
-	return load("res://Sprites/tri-" + color + ".png")
+	return load("res://Sprites/" + shape + "-" + color + ".png")
+
 func move_handler(new_chunk):
 	var self_chunk = int(floor(global_position.x/screen_size))
 	player_chunk = new_chunk

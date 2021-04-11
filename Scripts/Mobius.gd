@@ -16,7 +16,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	var chunk = int(floor(player.position.x/screen_size))
+	var chunk = int(floor(player.global_position.x/screen_size))
 	if last_chunk != chunk:
 		emit_signal("new_chunk", chunk)
 	last_chunk = chunk

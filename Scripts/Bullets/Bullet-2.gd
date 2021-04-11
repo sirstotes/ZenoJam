@@ -42,3 +42,5 @@ func move_handler(new_chunk):
 	var self_chunk = int(floor(global_position.x/screen_size))
 	player_chunk = new_chunk
 	wrap(self_chunk)
+	
+	

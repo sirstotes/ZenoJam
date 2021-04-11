@@ -2,6 +2,11 @@ extends Node2D
 export var thingsToSpawn = [preload("res://Objects/Enemies/Walker.tscn"), preload("res://Objects/Coin.tscn")]
 export var spawnTime = 2
 var spawnWait = 0
+onready var player = $"../../Player"
+
+var screen_size = 64 * 15
+var screen_height = 64 * 9
+
 func _ready():
 	spawnWait = 0
 func _process(delta):
@@ -19,6 +24,7 @@ func spawn():
 		var spawn = thingsToSpawn[randi()%(len(thingsToSpawn))].instance()
 		spawn.global_position = pos
 		var up = randf() > 0
+		spawn.player_chunk = int(floor(player.global_position.x/screen_size))
 		spawn.scale.y = spawn.scale.y if up else -spawn.scale.y
 		spawn.gravity_inverted = !up
 		if spawn.is_in_group("Enemy"):

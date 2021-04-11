@@ -30,7 +30,7 @@ func wrap(self_chunk):
 		#velocity.y = -velocity.y
 		scale.y = -scale.y
 		global_position.y = ((global_position.y - (screen_height/2)) * -1) + (screen_height/2)
-func _on_new_chunk(new_chunk):
+func move_handler(new_chunk):
 	var self_chunk = int(floor(global_position.x/screen_size))
 	player_chunk = new_chunk
 	wrap(self_chunk)

@@ -6,7 +6,7 @@ var last_position = Vector2()
 var collided_buffer = 0
 
 func _ready():
-	$Sprite.texture = set_color("blue")
+	$Sprite.texture = set_color("blue", "tri")
 
 func _physics_process(delta):
 	base_stuff(delta)
