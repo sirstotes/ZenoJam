@@ -15,7 +15,6 @@ onready var base = $"../../../Node2D"
 func _init():
 	speed_multiplier = gravity_scale*8
 func _ready():
-	add_to_group("bullet")
 	player_chunk = base.get_chunk()
 	base.connect("new_chunk", self, "move_handler")
 func _process(delta):
@@ -41,8 +40,8 @@ func move_handler(new_chunk):
 	wrap(self_chunk)
 
 func _on_Bullet_body_entered(body):
-	if body.is_in_group("enemy"):
+	if body.is_in_group("Enemy"):
 		body.health += damage
 		print(body.health)
-		add_to_group("freeing")
+		add_to_group("Freeing")
 		queue_free()

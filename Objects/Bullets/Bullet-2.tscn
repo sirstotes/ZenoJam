@@ -5,7 +5,9 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Bullet" type="KinematicBody2D"]
+[node name="Bullet" type="KinematicBody2D" groups=[
+"Bullet",
+]]
 collision_layer = 16
 script = ExtResource( 2 )
 

@@ -28,7 +28,7 @@ func _physics_process(delta):
 	base_stuff(delta)
 	current_delay += delta
 	if current_delay > jump_delay:
-		add_to_group("jumping")
+		add_to_group("Jumping")
 		current_delay = 0
 		var distance = player.global_position.x - global_position.x
 		print(max_speed)

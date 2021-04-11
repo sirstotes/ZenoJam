@@ -202,12 +202,13 @@ position = Vector2( 704, 448 )
 
 [node name="Domu" parent="Domus" instance=ExtResource( 8 )]
 position = Vector2( 1792, 288 )
+tradeCost = 10
 pathToBase = NodePath("../..")
 
 [node name="Domu2" parent="Domus" instance=ExtResource( 8 )]
 position = Vector2( 1856, 480 )
 tradenum = 1
-tradeCost = 5
+tradeCost = 20
 pathToBase = NodePath("../..")
 
 [node name="Body" parent="Domus/Domu2/Body-Collider" index="0"]
@@ -220,7 +221,7 @@ texture = ExtResource( 15 )
 position = Vector2( 2528, 224 )
 scale = Vector2( 1, -1 )
 tradenum = 3
-tradeCost = 10
+tradeCost = 20
 pathToBase = NodePath("../..")
 
 [node name="Body" parent="Domus/Domu3/Body-Collider" index="0"]

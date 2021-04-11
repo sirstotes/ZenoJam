@@ -11,7 +11,7 @@ export(float) var player_damage_buffer = 1
 var current_player_buffer = 0
 var health = 0
 
-var properties = {"blue": [50, 2], "green": [100, 4], "yellow": [200, 6], "red": [300, 8]}
+var properties = {"blue": [100, 2], "green": [200, 4], "yellow": [300, 6], "red": [400, 8]}
 
 var screen_size = 64 * 15
 var screen_height = 64 * 9
@@ -23,28 +23,25 @@ var player_chunk = 0
 var coin = preload("res://Objects/Coin.tscn")
 func _init():
 	set_color("blue", "tri")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	add_to_group("enemy")
-	base_stuff(delta)
+	add_to_group("Enemy")
 func base_stuff(delta):
 	var multiplier = air_multiplier
 	if is_on_ceiling():
 		velocity.y = 0
-	if is_on_floor() and !is_in_group("jumping"):
+	if is_on_floor() and !is_in_group("Jumping"):
 		multiplier = 1
 		velocity.y = 0
-	if is_in_group("jumping"): remove_from_group("jumping")
+	if is_in_group("Jumping"): remove_from_group("Jumping")
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 	move_and_slide(velocity, Vector2(0, -1))
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "TileMap" or collision.collider.name == "TileMap2" or collision.collider.name == "TileMap3":
 			continue
-		if collision.collider.is_in_group("bullet") and not collision.collider.is_in_group("freeing"):
+		if collision.collider.is_in_group("Bullet") and not collision.collider.is_in_group("Freeing"):
 			print("Bullet Contact")
-			collision.collider.add_to_group("freeing")
+			collision.collider.add_to_group("Freeing")
 			collision.collider.queue_free()
 			health += collision.collider.damage
 		if collision.collider.is_in_group("Player"):
@@ -81,7 +78,6 @@ func wrap(self_chunk):
 func die():
 	var c = coin.instance()
 	c.global_position = global_position
-	print(get_parent().name)
 	get_parent().get_parent().get_node("Coins").add_child(c)
 	queue_free()
 

@@ -5,7 +5,9 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Bullet" type="RigidBody2D" groups=[
+"Bullet",
+]]
 collision_layer = 16
 gravity_scale = 8.0
 contacts_reported = 7
