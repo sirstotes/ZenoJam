@@ -1,7 +1,7 @@
 extends RigidBody2D
 var damage = 1
 var timeAlive = 0
-var lifeTime = 10
+var lifeTime = 3
 var speed_multiplier = 0
 
 var screen_size = 64 * 15

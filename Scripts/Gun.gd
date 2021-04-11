@@ -5,13 +5,17 @@ export var speed = 10
 export var cooldown = 0.5
 export var rotationOffset = 90
 export var bulletLifetime = 10
-var cooldownWaited = 0
+var cooldownWaited = 0.5
 var bulletHolder
 func _ready():
 	bulletHolder = get_node(bulletHolderPath)
-	pass # Replace with function body.
 func _process(delta):
 	cooldownWaited += delta
+	if cooldownWaited < cooldown:
+		var c = 0.5+(cooldownWaited/cooldown)*0.5
+		modulate = Color(c, c, c, 1)
+	else:
+		modulate = Color(1, 1, 1)
 	rotation = deg2rad(rotationOffset)+atan2(get_global_mouse_position().y-global_position.y, get_global_mouse_position().x-global_position.x)
 	if (Input.is_action_just_pressed("shoot") and cooldownWaited>cooldown):
 		for child in get_children():

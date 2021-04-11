@@ -1,6 +1,6 @@
 extends Node2D
-export var thingsToSpawn = [preload("res://Objects/Enemies/Walker.tscn"), preload("res://Objects/Coin.tscn")]
-export var spawnTime = 15
+export var thingsToSpawn = [preload("res://Objects/Enemies/Walker.tscn"), preload("res://Objects/Enemies/Jumper.tscn")]
+export var spawnTime = 5
 var spawnWait = 0
 onready var player = $"../../Player"
 
@@ -8,7 +8,7 @@ var screen_size = 64 * 15
 var screen_height = 64 * 9
 
 func _ready():
-	spawnWait = randi()%15
+	spawnWait = randi()%5
 func _process(delta):
 	spawnWait += delta
 	if spawnWait > spawnTime:
@@ -17,7 +17,7 @@ func _process(delta):
 func spawn():
 	var possiblePositions = []
 	for c in get_children():
-		if true or not c.is_on_screen():
+		if not c.is_on_screen():
 			possiblePositions.append(c)
 	if len(possiblePositions) > 1:
 		var pos = possiblePositions[randi()%(len(possiblePositions))].global_position

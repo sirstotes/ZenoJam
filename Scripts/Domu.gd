@@ -10,6 +10,7 @@ var screen_size = 64 * 15
 var screen_height = 64 * 9
 var player_chunk = 0
 var player
+var spriteoffset = 0
 func _ready():
 	base = get_node(pathToBase)
 	base.connect("new_chunk", self, "_on_new_chunk")
@@ -19,6 +20,8 @@ func _process(delta):
 	$Message/Label.text = "x"+str(tradeCost)
 	cooldownWaited -= delta
 	if cooldownWaited < 0:
+		spriteoffset += delta*20
+		$"Body-Collider/Body".position.y = sin(spriteoffset)*5-5
 		$Message.visible = isPlayerNear
 		if Input.is_action_just_released("trade") and isPlayerNear and player.money >= tradeCost:
 			$Message.visible = false

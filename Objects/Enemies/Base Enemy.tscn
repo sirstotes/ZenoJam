@@ -12,7 +12,7 @@ radius = 32.0
 ]]
 position = Vector2( 255.308, 482.893 )
 collision_layer = 8
-collision_mask = 17
+collision_mask = 19
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

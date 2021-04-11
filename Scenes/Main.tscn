@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Sprites/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Mobius.gd" type="Script" id=2]
@@ -12,13 +12,11 @@
 [ext_resource path="res://Sprites/domu-yellow.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/health.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/coin.png" type="Texture" id=12]
-[ext_resource path="res://Objects/Enemies/Jumper.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Sprites/domu-green.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Upgrades/speed.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Upgrades/bullet-2.png" type="Texture" id=16]
 [ext_resource path="res://Objects/HealthBehind.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Sprites/health-empty.png" type="Texture" id=18]
-[ext_resource path="res://Objects/Coin.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scripts/Spawner.gd" type="Script" id=20]
 
 [node name="Node2D" type="Node2D"]
@@ -72,19 +70,19 @@ texture = ExtResource( 4 )
 [node name="SpawnLocations" type="Node2D" parent="Screen 1"]
 script = ExtResource( 20 )
 
-[node name="Spawn2" type="Node2D" parent="Screen 1/SpawnLocations"]
+[node name="Spawn2" type="VisibilityNotifier2D" parent="Screen 1/SpawnLocations"]
 position = Vector2( 160, 192 )
 
-[node name="Spawn5" type="Node2D" parent="Screen 1/SpawnLocations"]
+[node name="Spawn5" type="VisibilityNotifier2D" parent="Screen 1/SpawnLocations"]
 position = Vector2( 160, 448 )
 
-[node name="Spawn7" type="Node2D" parent="Screen 1/SpawnLocations"]
+[node name="Spawn7" type="VisibilityNotifier2D" parent="Screen 1/SpawnLocations"]
 position = Vector2( 448, 384 )
 
-[node name="Spawn8" type="Node2D" parent="Screen 1/SpawnLocations"]
+[node name="Spawn8" type="VisibilityNotifier2D" parent="Screen 1/SpawnLocations"]
 position = Vector2( 448, 192 )
 
-[node name="Spawn9" type="Node2D" parent="Screen 1/SpawnLocations"]
+[node name="Spawn9" type="VisibilityNotifier2D" parent="Screen 1/SpawnLocations"]
 position = Vector2( 768, 256 )
 
 [node name="Screen 2" type="Node2D" parent="."]
@@ -131,16 +129,16 @@ format = 1
 [node name="SpawnLocations2" type="Node2D" parent="Screen 2"]
 script = ExtResource( 20 )
 
-[node name="Spawn10" type="Node2D" parent="Screen 2/SpawnLocations2"]
+[node name="Spawn10" type="VisibilityNotifier2D" parent="Screen 2/SpawnLocations2"]
 position = Vector2( 128, 256 )
 
-[node name="Spawn11" type="Node2D" parent="Screen 2/SpawnLocations2"]
+[node name="Spawn11" type="VisibilityNotifier2D" parent="Screen 2/SpawnLocations2"]
 position = Vector2( 448, 192 )
 
-[node name="Spawn12" type="Node2D" parent="Screen 2/SpawnLocations2"]
+[node name="Spawn12" type="VisibilityNotifier2D" parent="Screen 2/SpawnLocations2"]
 position = Vector2( 642, 450 )
 
-[node name="Spawn13" type="Node2D" parent="Screen 2/SpawnLocations2"]
+[node name="Spawn13" type="VisibilityNotifier2D" parent="Screen 2/SpawnLocations2"]
 position = Vector2( 866, 226 )
 
 [node name="Screen 3" type="Node2D" parent="."]
@@ -187,21 +185,18 @@ tile_data = PoolIntArray( 8, 1610612742, 65536, 9, 1610612736, 65537, 10, 161061
 [node name="SpawnLocations3" type="Node2D" parent="Screen 3"]
 script = ExtResource( 20 )
 
-[node name="Spawn14" type="Node2D" parent="Screen 3/SpawnLocations3"]
+[node name="Spawn14" type="VisibilityNotifier2D" parent="Screen 3/SpawnLocations3"]
 position = Vector2( 224, 256 )
 
-[node name="Spawn15" type="Node2D" parent="Screen 3/SpawnLocations3"]
+[node name="Spawn15" type="VisibilityNotifier2D" parent="Screen 3/SpawnLocations3"]
 position = Vector2( 608, 96 )
 
-[node name="Spawn16" type="Node2D" parent="Screen 3/SpawnLocations3"]
+[node name="Spawn16" type="VisibilityNotifier2D" parent="Screen 3/SpawnLocations3"]
 position = Vector2( 704, 448 )
 
 [node name="Bullets" type="Node2D" parent="."]
 
 [node name="Coins" type="Node2D" parent="."]
-
-[node name="Node2D" parent="Coins" instance=ExtResource( 19 )]
-position = Vector2( 736, 424 )
 
 [node name="Domus" type="Node2D" parent="."]
 
@@ -236,9 +231,6 @@ texture = ExtResource( 16 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="KinematicBody2D" parent="Enemies" instance=ExtResource( 13 )]
-position = Vector2( 1067.78, 241.623 )
-
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 943.071, 425.225 )
 z_index = 1
@@ -251,7 +243,6 @@ bulletHolderPath = NodePath("../../Bullets")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 840, 300 )
 current = true
-zoom = Vector2( 3, 3 )
 limit_top = 0
 limit_bottom = 0
 smoothing_enabled = true

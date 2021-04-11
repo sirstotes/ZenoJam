@@ -11,7 +11,7 @@ export(float) var player_damage_buffer = 1
 var current_player_buffer = 0
 var health = 0
 
-var properties = {"blue": [100, 2], "green": [200, 4], "yellow": [300, 6], "red": [400, 8]}
+var properties = {"blue": [50, 2], "green": [100, 4], "yellow": [200, 6], "red": [300, 8]}
 
 var screen_size = 64 * 15
 var screen_height = 64 * 9
@@ -20,6 +20,7 @@ var gravity_inverted = false
 var velocity = Vector2()
 
 var player_chunk = 0
+var coin = preload("res://Objects/Coin.tscn")
 func _init():
 	set_color("blue", "tri")
 
@@ -34,7 +35,7 @@ func base_stuff(delta):
 	if is_on_floor() and !is_in_group("jumping"):
 		multiplier = 1
 		velocity.y = 0
-	remove_from_group("jumping")
+	if is_in_group("jumping"): remove_from_group("jumping")
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 	move_and_slide(velocity, Vector2(0, -1))
 	for i in get_slide_count():
@@ -78,6 +79,10 @@ func wrap(self_chunk):
 		scale.y = -scale.y
 		global_position.y = ((global_position.y - (screen_height/2)) * -1) + (screen_height/2)
 func die():
+	var c = coin.instance()
+	c.global_position = global_position
+	print(get_parent().name)
+	get_parent().get_parent().get_node("Coins").add_child(c)
 	queue_free()
 
 func set_color(color, shape):
