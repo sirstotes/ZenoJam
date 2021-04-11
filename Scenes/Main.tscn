@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Sprites/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Mobius.gd" type="Script" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Sprites/Upgrades/bullet-2.png" type="Texture" id=16]
 [ext_resource path="res://Objects/HealthBehind.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Sprites/health-empty.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Coin.tscn" type="PackedScene" id=19]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -151,6 +152,11 @@ tile_data = PoolIntArray( 8, 1610612742, 65536, 9, 1610612736, 65537, 10, 161061
 
 [node name="Bullets" type="Node" parent="."]
 
+[node name="Coin" type="Node" parent="."]
+
+[node name="Node2D" parent="Coin" instance=ExtResource( 19 )]
+position = Vector2( 736, 424 )
+
 [node name="Domus" type="Node" parent="."]
 
 [node name="Domu" parent="Domus" instance=ExtResource( 8 )]
@@ -226,30 +232,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DomuCount" type="Label" parent="CanvasLayer/UI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 960.0
-margin_top = 535.0
-margin_bottom = -1.0
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0.101961, 0.101961, 0.101961, 1 )
-text = "x3"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/DomuCount"]
-margin_left = -64.0
-margin_bottom = 64.0
-texture = ExtResource( 10 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="CoinCount" type="Label" parent="CanvasLayer/UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -272,6 +254,30 @@ margin_top = 8.0
 margin_right = -8.0
 margin_bottom = 56.0
 texture = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DomuCount" type="Label" parent="CanvasLayer/UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 960.0
+margin_top = 535.0
+margin_bottom = -1.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+text = "x3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/DomuCount"]
+margin_left = -64.0
+margin_bottom = 64.0
+texture = ExtResource( 10 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
