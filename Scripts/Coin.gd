@@ -6,28 +6,32 @@ var player_chunk = 0
 var player
 var spriteoffset = 0
 var velocity = Vector2(0, 0)
+var gravity_inverted = false
 func _ready():
 	player = get_parent().get_parent().get_node("Player")
 func _process(delta):
-	var self_chunk = int(floor(position.x/screen_size))
+	var self_chunk = int(floor(global_position.x/screen_size))
 	wrap(self_chunk)
 	spriteoffset += delta*3
 	$Sprite.position.y = sin(spriteoffset)*5-5
 	$Sprite.scale.x = cos(spriteoffset)*0.1
-	move_and_slide(velocity, Vector2(0, -1))
-	velocity.y += gravity * delta
+	velocity = move_and_slide(velocity, Vector2(0, -1))
+	if gravity_inverted:
+		velocity.y += -gravity * delta
+	else:
+		velocity.y += gravity * delta
 func wrap(self_chunk):
 	if abs(player_chunk - self_chunk) > 1:
 		if player_chunk > self_chunk:
-			position.x += screen_size * 3
+			global_position.x += screen_size * 3
 		else:
-			position.x -= screen_size * 3
-		#gravity_inverted = !gravity_inverted
+			global_position.x -= screen_size * 3
+		gravity_inverted = !gravity_inverted
 		#velocity.y = -velocity.y
 		scale.y = -scale.y
-		position.y = ((position.y - (screen_height/2)) * -1) + (screen_height/2)
+		global_position.y = ((global_position.y - (screen_height/2)) * -1) + (screen_height/2)
 func _on_new_chunk(new_chunk):
-	var self_chunk = int(floor(position.x/screen_size))
+	var self_chunk = int(floor(global_position.x/screen_size))
 	player_chunk = new_chunk
 	wrap(self_chunk)
 func _on_Area2D_body_entered(body):

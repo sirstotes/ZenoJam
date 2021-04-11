@@ -13,8 +13,6 @@ export(float) var player_damage_buffer = 1
 var current_player_buffer = 0
 var health = 0
 
-onready var base = $"../../Node2D"
-
 var properties = {"blue": [100, 2], "green": [200, 4], "yellow": [300, 6], "red": [400, 8]}
 
 var screen_size = 64 * 15
@@ -24,16 +22,11 @@ var gravity_inverted = false
 var velocity = Vector2()
 
 var player_chunk = 0
-# Called when the node enters the scene tree for the first time.
 func _init():
 	set_color("blue")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	add_to_group("enemy")
 	base_stuff(delta)
-	
-
 func base_stuff(delta):
 	var multiplier = air_multiplier
 	if is_on_ceiling():
@@ -61,7 +54,7 @@ func base_stuff(delta):
 	current_player_buffer += delta
 	if health >= max_health:
 		die()
-	var self_chunk = int(floor(position.x/screen_size))
+	var self_chunk = int(floor(global_position.x/screen_size))
 	wrap(self_chunk)
 	if gravity_inverted:
 		velocity.y += -gravity * delta
@@ -76,23 +69,20 @@ func base_stuff(delta):
 func wrap(self_chunk):
 	if abs(player_chunk - self_chunk) > 1:
 		if player_chunk > self_chunk:
-			position.x += screen_size * 3
+			global_position.x += screen_size * 3
 		else:
-			position.x -= screen_size * 3
+			global_position.x -= screen_size * 3
 		gravity_inverted = !gravity_inverted
 		velocity.y = -velocity.y
 		scale.y = -scale.y
-		position.y = ((position.y - (screen_height/2)) * -1) + (screen_height/2)
-
+		global_position.y = ((global_position.y - (screen_height/2)) * -1) + (screen_height/2)
 func die():
 	queue_free()
-
 func set_color(color):
 	max_speed = properties[color][0]
 	max_health = properties[color][1]
 	return load("res://Sprites/tri-" + color + ".png")
-
 func move_handler(new_chunk):
-	var self_chunk = int(floor(position.x/screen_size))
+	var self_chunk = int(floor(global_position.x/screen_size))
 	player_chunk = new_chunk
 	wrap(self_chunk)
