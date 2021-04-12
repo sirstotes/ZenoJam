@@ -36,6 +36,7 @@ func _physics_process(delta):
 		multiplier = 1
 		velocity.y = 0
 		if Input.is_action_pressed("move-up"):
+			$Jump.play()
 			velocity.y = -jump_speed
 	if Input.is_action_pressed("move-left"):
 		velocity.x -= (walk_acceleration * delta * multiplier)
@@ -74,6 +75,7 @@ func _on_gun_shoot():
 	bulletAmounts[bullet_selected] -= 1
 func _on_Healer_body_entered(body):
 	if body == self:
+		$Health.play()
 		on_healer = true
 func _on_Healer_body_exited(body):
 	if body == self:

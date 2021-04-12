@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sounds/Explosion.wav" type="AudioStream" id=1]
+[ext_resource path="res://Scripts/Sound.gd" type="Script" id=2]
+
+[node name="Death" type="AudioStreamPlayer2D"]
+stream = ExtResource( 1 )
+autoplay = true
+script = ExtResource( 2 )
+[connection signal="finished" from="." to="." method="delete"]

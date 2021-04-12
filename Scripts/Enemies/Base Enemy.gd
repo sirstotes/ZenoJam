@@ -1,5 +1,4 @@
 extends KinematicBody2D
-
 export(float) var gravity = 980
 export(float) var walk_acceleration = 5000
 var max_speed = 1000
@@ -26,6 +25,7 @@ var velocity = Vector2()
 
 var player_chunk = 0
 var coin = preload("res://Objects/Coin.tscn")
+var sound = preload("res://Objects/DeathSound.tscn")
 var modvalue = 1
 
 func _init():
@@ -97,6 +97,9 @@ func wrap(self_chunk):
 		scale.y = -scale.y
 		global_position.y = ((global_position.y - (screen_height/2)) * -1) + (screen_height/2)
 func die():
+	var s = sound.instance()
+	s.global_position = global_position
+	get_parent().get_parent().add_child(s)
 	var c = coin.instance()
 	c.global_position = global_position
 	c.player_chunk = player_chunk
@@ -105,7 +108,6 @@ func die():
 	get_parent().get_parent().connect("new_chunk", c, "move_handler")
 	get_parent().get_parent().get_node("Coins").add_child(c)
 	queue_free()
-
 func set_color(color, shape):
 	static_shape = shape
 	max_speed = properties[color][0]
@@ -113,7 +115,6 @@ func set_color(color, shape):
 	if shape == "square" or shape == "hex" or shape == "circle":
 		max_speed = 100000
 	return load("res://Sprites/" + shape + "-" + color + ".png")
-
 func move_handler(new_chunk):
 	var self_chunk = int(floor(global_position.x/screen_size))
 	player_chunk = new_chunk
@@ -121,3 +122,4 @@ func move_handler(new_chunk):
 func hurt(amount):
 	health += amount
 	modvalue = 10
+	$Hurt.play()

@@ -7,6 +7,7 @@ var player
 var spriteoffset = 0
 var velocity = Vector2(0, 0)
 var gravity_inverted = false
+var sound = preload("res://Objects/CoinSound.tscn")
 func _ready():
 	player = get_parent().get_parent().get_node("Player")
 func _process(delta):
@@ -36,5 +37,8 @@ func move_handler(new_chunk):
 	wrap(self_chunk)
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):
+		var s = sound.instance()
+		s.global_position = global_position
+		get_parent().get_parent().add_child(s)
 		body.money += 1
 		queue_free()

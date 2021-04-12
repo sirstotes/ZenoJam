@@ -27,3 +27,4 @@ func _process(delta):
 			newBullet.rotation=position.angle_to(child.position)
 			bulletHolder.add_child(newBullet)
 		cooldownWaited = 0
+		get_parent().get_node("Shoot").play()

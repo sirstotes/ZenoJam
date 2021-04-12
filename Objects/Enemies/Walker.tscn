@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Enemies/Walker.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/tri-yellow.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/face-5.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/Explosion.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.0
@@ -36,4 +37,7 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 rotation = 3.14159
 shape = SubResource( 2 )
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

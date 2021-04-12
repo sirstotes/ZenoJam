@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/gun-1.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/body.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Gun.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/Jump.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/Laser_Shoot.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/Powerup.wav" type="AudioStream" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.0
@@ -38,3 +41,12 @@ script = ExtResource( 4 )
 [node name="Spawn" type="Node2D" parent="Gun"]
 position = Vector2( 0, -450 )
 scale = Vector2( 10, 10 )
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Health" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )

@@ -40,7 +40,7 @@ func _process(delta):
 				if tradenum == 0:
 					player.max_health += 1
 				elif tradenum == 1:
-					player.max_speed += 50
+					player.max_speed += 100
 				elif tradenum == 2:
 					player.bulletAmounts[1] += 5
 				elif tradenum == 3:
@@ -48,7 +48,8 @@ func _process(delta):
 				elif tradenum == 4:
 					player.bulletAmounts[3] += 5
 				elif tradenum == 5:
-					player.jump_speed += 50
+					player.jump_speed += 100
+				$Trade.play()
 		else:
 			spriteoffset += delta*5
 			$"Body-Collider/Body".position.x = sin(spriteoffset)*5
