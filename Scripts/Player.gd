@@ -31,7 +31,7 @@ func _physics_process(delta):
 	collided_buffer -= 1
 	var multiplier = air_multiplier
 	if is_on_ceiling():
-		velocity.y = 0
+		velocity.y = 1
 	if is_on_floor():
 		multiplier = 1
 		velocity.y = 0

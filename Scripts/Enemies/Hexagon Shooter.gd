@@ -13,7 +13,7 @@ export(Vector2) var timings = Vector2(4,6)
 var bullet = preload("res://Objects/Bullets/Enemy-Bullet.tscn")
 
 export(float) var acceleration = 1
-export(float) var speed_multiplier = 0.001
+export var speed_multiplier = [0.0005, 0.001, 0.0015, 0.002]
 
 func _ready():
 	time_until_next_shot = rng.randf_range(timings.x, timings.y)
@@ -31,8 +31,8 @@ func _physics_process(delta):
 			bullet_holder.add_child(bullet_instance)
 		
 	velocity += ((player.global_position+Vector2(0,-50))-global_position).normalized()*acceleration
-	velocity.x = clamp(velocity.x, -max_speed*speed_multiplier, max_speed*speed_multiplier)
-	velocity.y = clamp(velocity.y, -max_speed*speed_multiplier, max_speed*speed_multiplier)
+	velocity.x = clamp(velocity.x, -max_speed*speed_multiplier[stage], max_speed*speed_multiplier[stage])
+	velocity.y = clamp(velocity.y, -max_speed*speed_multiplier[stage], max_speed*speed_multiplier[stage])
 	move_and_slide(velocity, Vector2(0, -1))
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)

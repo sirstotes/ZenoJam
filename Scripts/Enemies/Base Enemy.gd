@@ -34,6 +34,8 @@ func _process(delta):
 	time_alive += delta
 	if time_alive > upgrade_time:
 		stage += 1
+		if stage > 3:
+			stage = 3
 		if stage == 1:
 			$Sprite.texture = set_color("green", static_shape)
 		elif stage == 2:
@@ -52,7 +54,7 @@ func _physics_process(delta):
 func base_stuff(delta):
 	var multiplier = air_multiplier
 	if is_on_ceiling() and !is_in_group("Jumping"):
-		velocity.y = 0
+		velocity.y = 1
 	if is_on_floor() and !is_in_group("Jumping"):
 		multiplier = 1
 		velocity.y = 0

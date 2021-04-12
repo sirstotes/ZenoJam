@@ -5,7 +5,7 @@ var walking_left = true
 var last_position = Vector2()
 var collided_buffer = 0
 onready var player = $"../../Player"
-export(float) var jump_delay = 3.141 
+export var jump_delay = [5, 4, 3, 2]
 export(float) var friction = 5000
 export(float) var jump_speed = 500
 export(float) var sideways_multiplier = 0.7
@@ -27,7 +27,7 @@ func _physics_process(delta):
 		velocity.x += (friction * delta * multiplier)
 	base_stuff(delta)
 	current_delay += delta
-	if current_delay > jump_delay:
+	if current_delay > jump_delay[stage]:
 		add_to_group("Jumping")
 		current_delay = 0
 		var distance = player.global_position.x - global_position.x

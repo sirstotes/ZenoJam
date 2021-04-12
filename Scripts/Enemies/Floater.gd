@@ -4,15 +4,15 @@ var walking_left = true
 
 onready var player = $"../../Player"
 export(float) var acceleration = 1
-export(float) var speed_multiplier = 0.001
+export var speed_multiplier = [0.001, 0.0015, 0.002, 0.0025]
 
 func _ready():	
 	$Sprite.texture = set_color("blue", "circle")
 	max_speed = 100000
 func _physics_process(delta):
 	velocity += ((player.global_position+Vector2(0,-50))-global_position).normalized()*acceleration
-	velocity.x = clamp(velocity.x, -max_speed*speed_multiplier, max_speed*speed_multiplier)
-	velocity.y = clamp(velocity.y, -max_speed*speed_multiplier, max_speed*speed_multiplier)
+	velocity.x = clamp(velocity.x, -max_speed*speed_multiplier[stage], max_speed*speed_multiplier[stage])
+	velocity.y = clamp(velocity.y, -max_speed*speed_multiplier[stage], max_speed*speed_multiplier[stage])
 	move_and_slide(velocity, Vector2(0, -1))
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
